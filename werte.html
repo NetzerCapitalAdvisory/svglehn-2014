@@ -6,11 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Unsere Werte - SV Glehn 2014</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .value-section {
+            padding: 6rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .value-section:last-of-type {
+            border-bottom: none;
+        }
+
+        .value-title {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--color-gold);
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #f0f0f0;
+            max-width: 900px;
+            margin: 0 auto 4rem auto;
+            text-align: center;
+        }
+
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid var(--color-gold);
+            padding: 2rem;
+            margin-top: 2rem;
+            font-style: italic;
+            color: #ddd;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Header -->
-    <header>
+    <header style="background: rgba(0,0,0,0.9); position: fixed;"> <!-- Fixed header for this page -->
         <div class="container">
             <nav>
                 <div class="logo"><a href="index.html">SV <span class="text-gold">Glehn</span> '14</a></div>
@@ -22,55 +56,97 @@
         </div>
     </header>
 
-    <main style="padding-top: 100px;">
-        <section class="container detail-content">
-            <h1 class="text-gold" style="text-align: center; margin-bottom: 4rem;">Unsere Philosophie</h1>
+    <main style="padding-top: 120px;">
 
-            <!-- Teamgeist Detail -->
-            <article id="teamgeist" style="margin-bottom: 6rem;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">1. Der Teamgeist</h2>
-                <p style="font-size: 1.2rem; max-width: 800px; color: #ddd;">
-                    Beim SV Glehn steht das "Wir" über dem "Ich". Fußball ist der ultimative Mannschaftssport, und wir
-                    glauben fest daran, dass Charakterbildung genauso wichtig ist wie Ballbeherrschung. In unserem
-                    Jahrgang 2014 lernen die Kinder, was es heißt, Verantwortung für den Nebenmann zu übernehmen.
-                    <br><br>
-                    Wir gewinnen zusammen, wir verlieren zusammen – und wir wachsen zusammen. Niemand wird
-                    zurückgelassen. Unsere Gemeinschaft geht über den Platz hinaus; wir sind eine Familie aus Spielern,
-                    Trainern und Eltern, die zusammenhalten.
-                </p>
-            </article>
+        <!-- Über Uns Section (General) -->
+        <section class="container" style="text-align: center; padding-bottom: 4rem; border-bottom: 1px solid #333;">
+            <h1 class="text-gold" style="font-size: 4rem; margin-bottom: 2rem;">Über Uns</h1>
+            <p class="intro-text">
+                Willkommen beim SV Glehn, Jahrgang 2014. Wir sind mehr als nur eine Fußballmannschaft auf dem Platz.
+                Wir sind eine Gemeinschaft, die von Engagement, Freude und Leidenschaft lebt. <br>
+                Unser Ziel ist es, Kindern nicht nur das Fußballspielen beizubringen, sondern ihnen Werte zu vermitteln,
+                die sie ein Leben lang begleiten werden. In einer Zeit, in der Einzelkämpfer oft gefeiert werden,
+                setzen wir bewusst auf das Kollektiv.
+            </p>
+        </section>
 
-            <!-- Entwicklung Detail -->
-            <article id="entwicklung" style="margin-bottom: 6rem;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">2. Die Entwicklung</h2>
-                <p style="font-size: 1.2rem; max-width: 800px; color: #ddd;">
-                    Wir bieten kein 08/15-Training. Unser Ansatz basiert auf modernen Trainingsmethoden, die
-                    kindgerecht, aber fordernd sind. Wir schauen nicht nur auf das Ergebnis am Wochenende, sondern auf
-                    den langfristigen Weg jedes einzelnen Kindes.
-                    <br><br>
-                    Technik, Koordination und Spielintelligenz werden bei uns Schritt für Schritt aufgebaut. Wir geben
-                    jedem Kind die Zeit, die es braucht, aber auch die Anreize, die es will, um das nächste Level zu
-                    erreichen.
-                </p>
-            </article>
-
-            <!-- Leidenschaft Detail -->
-            <article id="leidenschaft" style="margin-bottom: 6rem;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">3. Die Leidenschaft</h2>
-                <p style="font-size: 1.2rem; max-width: 800px; color: #ddd;">
-                    Gold, Schwarz und Blau sind nicht nur Farben – es ist eine Haltung. Wir wollen Kinder, deren Augen
-                    leuchten, wenn sie den Rasen betreten. Wir fördern die pure Freude am Spiel, den gesunden Wettbewerb
-                    und den Willen, niemals aufzugeben.
-                    <br><br>
-                    Leidenschaft bedeutet für uns auch Respekt: Respekt vor dem Gegner, dem Schiedsrichter und dem Spiel
-                    selbst. Wer bei uns spielt, trägt das Trikot mit Stolz.
-                </p>
-            </article>
-
-            <div style="text-align: center; margin: 4rem 0;">
-                <a href="index.html#kontakt" class="btn btn-primary"
-                    style="font-size: 1.5rem; padding: 1.5rem 3rem;">Werde Teil des Teams</a>
+        <!-- 1. Teamgeist -->
+        <section id="teamgeist" class="value-section">
+            <div class="container">
+                <h2 class="value-title">1. Der Teamgeist</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <p style="font-size: 1.2rem; color: #ccc;">
+                            Beim SV Glehn steht das "Wir" über dem "Ich". Fußball ist der ultimative Mannschaftssport,
+                            und wir glauben fest daran, dass Charakterbildung genauso wichtig ist wie Ballbeherrschung.
+                            In unserem Jahrgang 2014 lernen die Kinder, was es heißt, Verantwortung für den Nebenmann zu
+                            übernehmen.
+                            <br><br>
+                            Wir gewinnen zusammen, wir verlieren zusammen – und wir wachsen zusammen. Niemand wird
+                            zurückgelassen. Unsere Gemeinschaft geht über den Platz hinaus; wir sind eine Familie aus
+                            Spielern, Trainern und Eltern, die zusammenhalten. Echte Freundschaften entstehen hier, oft
+                            fürs ganze Leben.
+                        </p>
+                        <div class="highlight-box">
+                            "Talent gewinnt Spiele, aber Teamwork und Intelligenz gewinnen Meisterschaften."
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <!-- 2. Entwicklung -->
+        <section id="entwicklung" class="value-section" style="background: #080808;">
+            <div class="container">
+                <h2 class="value-title">2. Die Entwicklung</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <p style="font-size: 1.2rem; color: #ccc;">
+                            Wir bieten kein 08/15-Training. Unser Ansatz basiert auf modernen Trainingsmethoden, die
+                            kindgerecht, aber fordernd sind. Wir schauen nicht nur auf das Ergebnis am Wochenende,
+                            sondern auf den langfristigen Weg jedes einzelnen Kindes.
+                            <br><br>
+                            Technik, Koordination und Spielintelligenz werden bei uns Schritt für Schritt aufgebaut. Wir
+                            geben jedem Kind die Zeit, die es braucht, aber auch die Anreize, die es will, um das
+                            nächste Level zu erreichen.
+                            Fehler sind bei uns willkommen – denn nur wer Fehler macht, kann daraus lernen und besser
+                            werden.
+                        </p>
+                        <div class="highlight-box">
+                            Unser Fokus liegt auf der individuellen Förderung im Kollektiv. Jeder Schritt zählt.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Leidenschaft -->
+        <section id="leidenschaft" class="value-section">
+            <div class="container">
+                <h2 class="value-title">3. Die Leidenschaft</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
+                    <div style="flex: 1; min-width: 300px;">
+                        <p style="font-size: 1.2rem; color: #ccc;">
+                            Gold, Schwarz und Blau sind nicht nur Farben – es ist eine Haltung. Wir wollen Kinder, deren
+                            Augen leuchten, wenn sie den Rasen betreten. Wir fördern die pure Freude am Spiel, den
+                            gesunden Wettbewerb und den Willen, niemals aufzugeben.
+                            <br><br>
+                            Leidenschaft bedeutet für uns auch Respekt: Respekt vor dem Gegner, dem Schiedsrichter und
+                            dem Spiel selbst. Wer bei uns spielt, trägt das Trikot mit Stolz. Wir kämpfen um jeden Ball,
+                            aber immer mit Fairplay. Das ist die Philosophie, die wir leben.
+                        </p>
+                        <div class="highlight-box">
+                            Leidenschaft ist der Treibstoff für Erfolg. Wir brennen für das Spiel.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section style="padding: 6rem 0; text-align: center;">
+            <h3 style="margin-bottom: 2rem; color: #fff;">Bist du bereit?</h3>
+            <a href="index.html#kontakt" class="btn btn-primary" style="font-size: 1.5rem; padding: 1.5rem 3rem;">Werde
+                Teil des Teams</a>
         </section>
     </main>
 
