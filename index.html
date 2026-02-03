@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SV Glehn - Jahrgang 2014</title>
+  <meta name="description" content="Wir suchen dich! Werde Teil unserer Fußballmannschaft Jahrgang 2014 beim SV Glehn.">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">SV <span class="text-gold">Glehn</span> '14</div>
+        <!-- Optional Nav Links could go here -->
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Wir suchen <span class="text-gold">Dich</span> für unser Team!</h1>
+        <p>Bist du Jahrgang 2014 und hast Bock auf Fußball? Egal ob Anfänger oder Profi – bei uns bist du richtig.</p>
+        <a href="#kontakt" class="btn btn-primary">Jetzt Probetraining vereinbaren</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="container">
+      <div class="grid">
+        <div class="card">
+          <h3>Teamgeist</h3>
+          <p>Bei uns steht der Spaß und der Zusammenhalt an erster Stelle. Wir gewinnen zusammen und wir verlieren
+            zusammen.</p>
+        </div>
+        <div class="card">
+          <h3>Entwicklung</h3>
+          <p>Unsere Trainer sind engagiert und fördern jedes Kind individuell, damit es besser wird.</p>
+        </div>
+        <div class="card">
+          <h3>Leidenschaft</h3>
+          <p>Fußball ist mehr als nur ein Spiel. Wir leben die Farben Schwarz, Gold und Blau.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="kontakt" class="contact">
+    <div class="container">
+      <div class="form-container">
+        <h2 style="margin-bottom: 2rem; text-align: center;">Komm zum Probetraining</h2>
+        <form action="https://formspree.io/f/xnjzrdjv" method="POST">
+          <!-- Formspree needs no hidden fields usually, but honeypot is handled on their side if configured, or we can use a _scramble -->
+
+          <div class="form-group">
+            <label for="parentName">Name der Eltern</label>
+            <input type="text" id="parentName" name="parentName" required placeholder="Dein Name">
+          </div>
+
+          <div class="form-group">
+            <label for="childName">Name des Kindes</label>
+            <input type="text" id="childName" name="childName" required placeholder="Vorname des Kindes">
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-Mail Adresse</label>
+            <input type="email" id="email" name="email" required placeholder="deine@email.de">
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefonnummer (Optional)</label>
+            <input type="tel" id="phone" name="phone" placeholder="Für Rückfragen (WhatsApp)">
+          </div>
+
+          <div class="form-group">
+            <label for="message">Nachricht / Vorerfahrung</label>
+            <textarea id="message" name="message" rows="4"
+              placeholder="Hat dein Kind schon im Verein gespielt?"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">Absenden</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2024 SV Glehn Jahrgang 2014. Alle Rechte vorbehalten.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+
+</html>
