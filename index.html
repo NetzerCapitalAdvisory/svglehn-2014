@@ -15,7 +15,11 @@
     <div class="container">
       <nav>
         <div class="logo">SV <span class="text-gold">Glehn</span> '14</div>
-        <!-- Optional Nav Links could go here -->
+        <ul class="nav-links">
+          <!-- New Top Right Link -->
+          <li><a href="werte.html">Über uns</a></li>
+          <li><a href="#kontakt" class="btn btn-primary btn-sm">Kontakt</a></li>
+        </ul>
       </nav>
     </div>
   </header>
@@ -31,23 +35,27 @@
     </div>
   </section>
 
-  <!-- About Section -->
+  <!-- About Section with Glowing Cards -->
   <section class="about">
     <div class="container">
       <div class="grid">
-        <div class="card">
+        <!-- Teamgeist Card (Link to Detail) -->
+        <a href="werte.html#teamgeist" class="card">
           <h3>Teamgeist</h3>
-          <p>Bei uns steht der Spaß und der Zusammenhalt an erster Stelle. Wir gewinnen zusammen und wir verlieren
-            zusammen.</p>
-        </div>
-        <div class="card">
+          <p>Einer für alle, alle für einen. Wir formen Charaktere, nicht nur Spieler. Klicke hier für mehr Infos.</p>
+        </a>
+
+        <!-- Entwicklung Card (Link to Detail) -->
+        <a href="werte.html#entwicklung" class="card">
           <h3>Entwicklung</h3>
-          <p>Unsere Trainer sind engagiert und fördern jedes Kind individuell, damit es besser wird.</p>
-        </div>
-        <div class="card">
+          <p>Professionelles Training auf DFB-Niveau. Wir holen das Beste aus jedem Kind heraus.</p>
+        </a>
+
+        <!-- Leidenschaft Card (Link to Detail) -->
+        <a href="werte.html#leidenschaft" class="card">
           <h3>Leidenschaft</h3>
-          <p>Fußball ist mehr als nur ein Spiel. Wir leben die Farben Schwarz, Gold und Blau.</p>
-        </div>
+          <p>Fußball ist unser Leben. Wir vermitteln Spaß an der Bewegung und dem Wettbewerb.</p>
+        </a>
       </div>
     </div>
   </section>
@@ -56,9 +64,8 @@
   <section id="kontakt" class="contact">
     <div class="container">
       <div class="form-container">
-        <h2 style="margin-bottom: 2rem; text-align: center;">Komm zum Probetraining</h2>
+        <h2 style="margin-bottom: 2rem; text-align: center; color: var(--color-gold);">Komm zum Probetraining</h2>
         <form action="https://formspree.io/f/xnjzrdjv" method="POST">
-          <!-- Formspree needs no hidden fields usually, but honeypot is handled on their side if configured, or we can use a _scramble -->
 
           <div class="form-group">
             <label for="parentName">Name der Eltern</label>

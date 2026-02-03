@@ -2,20 +2,20 @@
 
 :root {
   --color-gold: #D4AF37;
-  --color-gold-hover: #b5952f;
+  --color-gold-hover: #FCC200;
   --color-blue-dark: #002366;
-  --color-black: #0a0a0a;
-  --color-gray: #1a1a1a;
+  --color-black: #000000;
+  --color-dark-gray: #111111;
   --color-text: #f0f0f0;
   --color-text-muted: #cccccc;
-  
+
   --font-heading: 'Montserrat', sans-serif;
   --font-body: 'Inter', sans-serif;
-  
+
   --spacing-sm: 1rem;
   --spacing-md: 2rem;
   --spacing-lg: 4rem;
-  
+
   --border-radius: 8px;
   --container-width: 1200px;
 }
@@ -28,13 +28,16 @@
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-black);
+  background-color: var(--color-dark-gray);
   color: var(--color-text);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-heading);
   line-height: 1.2;
   text-transform: uppercase;
@@ -71,6 +74,11 @@ ul {
   transition: all 0.3s ease;
 }
 
+.btn-sm {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.9rem;
+}
+
 .btn-primary {
   background-color: var(--color-gold);
   color: var(--color-blue-dark);
@@ -79,7 +87,7 @@ ul {
 .btn-primary:hover {
   background-color: var(--color-gold-hover);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
 }
 
 .text-gold {
@@ -88,11 +96,11 @@ ul {
 
 /* Header */
 header {
-  padding: var(--spacing-md) 0;
+  padding: 1.5rem 0;
   position: absolute;
   width: 100%;
   top: 0;
-  z-index: 10;
+  z-index: 100;
 }
 
 nav {
@@ -107,15 +115,31 @@ nav {
   color: var(--color-white);
 }
 
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nav-links a {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  color: var(--color-gold);
+}
+
 /* Hero Section */
 .hero {
-  height: 100vh;
+  height: 90vh;
   min-height: 600px;
   display: flex;
   align-items: center;
   position: relative;
-  background: radial-gradient(circle at center, rgba(0,35,102,0.4) 0%, rgba(10,10,10,1) 100%),
-              url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=2670&auto=format&fit=crop'); /* Fallback image since generation failed */
+  background: radial-gradient(circle at center, rgba(0, 35, 102, 0.4) 0%, rgba(10, 10, 10, 1) 100%),
+    url('https://images.unsplash.com/photo-1579952363873-27f3bade9f55?q=80&w=2670&auto=format&fit=crop');
   background-size: cover;
   background-position: center;
 }
@@ -127,7 +151,7 @@ nav {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, var(--color-black) 0%, transparent 60%);
+  background: linear-gradient(to top, var(--color-dark-gray) 0%, transparent 60%);
   z-index: 1;
 }
 
@@ -140,71 +164,75 @@ nav {
 .hero h1 {
   font-size: clamp(3rem, 8vw, 6rem);
   margin-bottom: var(--spacing-sm);
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: var(--spacing-md);
-  color: var(--color-text-muted);
-  max-width: 600px;
-}
-
-/* About Section */
+/* About Section & Cards */
 .about {
   padding: var(--spacing-lg) 0;
-  background-color: var(--color-black);
+  background-color: var(--color-dark-gray);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-md);
-  align-items: start;
+  align-items: stretch;
 }
 
 .card {
-  background: var(--color-gray);
+  background: #1a1a1a;
   padding: var(--spacing-md);
   border-radius: var(--border-radius);
   border: 1px solid #333;
-}
-
-.card h3 {
-  color: var(--color-gold);
-  margin-bottom: var(--spacing-sm);
-  font-size: 1.5rem;
-}
-
-/* Contact Section */
-.contact {
-  padding: var(--spacing-lg) 0;
-  background-color: var(--color-blue-dark);
+  transition: all 0.4s ease;
+  cursor: pointer;
+  display: block;
+  /* Make anchor behave like block */
+  text-decoration: none;
   position: relative;
   overflow: hidden;
 }
 
-/* Decorative elements */
-.contact::before {
-  content: '';
-  position: absolute;
-  top: -100px;
-  right: -100px;
-  width: 400px;
-  height: 400px;
-  background: var(--color-gold);
-  border-radius: 50%;
-  filter: blur(150px);
-  opacity: 0.1;
+/* Glowing Border Effect for Cards */
+.card h3 {
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card p {
+  color: var(--color-text-muted);
+  position: relative;
+  z-index: 2;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+/* Contact Section - Black Form */
+.contact {
+  padding: var(--spacing-lg) 0;
+  background-color: #050505;
+  /* Blacker background */
+  position: relative;
+  overflow: hidden;
 }
 
 .form-container {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-black);
+  /* Pure Black */
   padding: calc(var(--spacing-md) * 1.5);
   border-radius: var(--border-radius);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #333;
   max-width: 600px;
   margin: 0 auto;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
 }
 
 .form-group {
@@ -216,23 +244,29 @@ label {
   margin-bottom: 0.5rem;
   font-weight: 600;
   font-size: 0.9rem;
-  color: var(--color-text-muted);
+  color: var(--color-gold);
+  /* Gold Labels */
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid #444;
+  background: #111;
+  /* Very dark gray input */
+  border: 1px solid #333;
   border-radius: var(--border-radius);
   color: var(--color-white);
   font-family: var(--font-body);
   font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   outline: none;
   border-color: var(--color-gold);
+  background: #000;
 }
 
 /* Footer */
@@ -241,24 +275,14 @@ footer {
   text-align: center;
   color: var(--color-text-muted);
   font-size: 0.9rem;
+  background-color: #000;
   border-top: 1px solid #222;
 }
 
 /* Mobile Adjustments */
 @media (max-width: 768px) {
-  .hero {
-    text-align: center;
-  }
-  
-  .hero-content {
-    margin: 0 auto;
-  }
-  
-  .form-container {
-    padding: var(--spacing-md);
-  }
-  
-  nav ul {
-    display: none; /* Simple MVP menu for now */
+  .nav-links {
+    display: none;
+    /* Hide on mobile for MVP, could add burger later */
   }
 }
