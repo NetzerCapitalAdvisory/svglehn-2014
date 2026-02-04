@@ -15,4 +15,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// Sticky Header Logic
+const header = document.querySelector('header');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+});
+
 console.log('SV Glehn Website Loaded');
