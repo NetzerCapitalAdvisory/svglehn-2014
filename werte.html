@@ -4,156 +4,186 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Unsere Werte - SV Glehn 2014</title>
+    <title>Über uns - SV Glehn 2014</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .value-section {
-            padding: 6rem 0;
-            border-bottom: 1px solid #333;
+        .about-section {
+            padding: 5rem 0;
         }
 
-        .value-section:last-of-type {
-            border-bottom: none;
+        .content-block {
+            margin-bottom: 5rem;
         }
 
-        .value-title {
+        .content-block h2 {
             font-size: 3rem;
             margin-bottom: 2rem;
-            color: var(--color-gold);
+            color: var(--color-primary-blue);
         }
 
-        .intro-text {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #f0f0f0;
-            max-width: 900px;
-            margin: 0 auto 4rem auto;
-            text-align: center;
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
         }
 
-        .highlight-box {
-            background: rgba(255, 255, 255, 0.05);
-            border-left: 4px solid var(--color-gold);
-            padding: 2rem;
-            margin-top: 2rem;
+        .einstellung-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .einstellung-card {
+            background: var(--color-primary-blue);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .einstellung-card h4 {
+            color: var(--color-yellow);
+            margin-bottom: 1rem;
+        }
+
+        .feedback-section {
+            background: var(--color-grey-light);
+            padding: 5rem 0;
+            margin-top: 5rem;
+        }
+
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .quote {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .quote p {
             font-style: italic;
-            color: #ddd;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
     </style>
 </head>
 
 <body>
     <!-- Header -->
-    <header style="background: rgba(0,0,0,0.9); position: fixed;"> <!-- Fixed header for this page -->
+    <header style="padding: 1.5rem 0;">
         <div class="container">
             <nav>
-                <div class="logo"><a href="index.html">SV <span class="text-gold">Glehn</span> '14</a></div>
+                <div class="brand"><a href="index.html" style="color: var(--color-yellow); text-decoration: none;">S.V.
+                        Glehn 2014</a></div>
                 <ul class="nav-links">
-                    <li><a href="index.html">Startseite</a></li>
-                    <li><a href="index.html#kontakt" class="btn btn-primary btn-sm">Kontakt</a></li>
+                    <li><a href="index.html">STARTSEITE</a></li>
+                    <li><a href="index.html#probetraining">PROBETRAINING</a></li>
+                    <li><a href="index.html#kontakt">KONTAKT</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main style="padding-top: 120px;">
-
-        <!-- Über Uns Section (General) -->
-        <section class="container" style="text-align: center; padding-bottom: 4rem; border-bottom: 1px solid #333;">
-            <h1 class="text-gold" style="font-size: 4rem; margin-bottom: 2rem;">Über Uns</h1>
-            <p class="intro-text">
-                Willkommen beim SV Glehn, Jahrgang 2014. Wir sind mehr als nur eine Fußballmannschaft auf dem Platz.
-                Wir sind eine Gemeinschaft, die von Engagement, Freude und Leidenschaft lebt. <br>
-                Unser Ziel ist es, Kindern nicht nur das Fußballspielen beizubringen, sondern ihnen Werte zu vermitteln,
-                die sie ein Leben lang begleiten werden. In einer Zeit, in der Einzelkämpfer oft gefeiert werden,
-                setzen wir bewusst auf das Kollektiv.
-            </p>
-        </section>
-
-        <!-- 1. Teamgeist -->
-        <section id="teamgeist" class="value-section">
-            <div class="container">
-                <h2 class="value-title">1. Der Teamgeist</h2>
-                <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <p style="font-size: 1.2rem; color: #ccc;">
-                            Beim SV Glehn steht das "Wir" über dem "Ich". Fußball ist der ultimative Mannschaftssport,
-                            und wir glauben fest daran, dass Charakterbildung genauso wichtig ist wie Ballbeherrschung.
-                            In unserem Jahrgang 2014 lernen die Kinder, was es heißt, Verantwortung für den Nebenmann zu
-                            übernehmen.
-                            <br><br>
-                            Wir gewinnen zusammen, wir verlieren zusammen – und wir wachsen zusammen. Niemand wird
-                            zurückgelassen. Unsere Gemeinschaft geht über den Platz hinaus; wir sind eine Familie aus
-                            Spielern, Trainern und Eltern, die zusammenhalten. Echte Freundschaften entstehen hier, oft
-                            fürs ganze Leben.
-                        </p>
-                        <div class="highlight-box">
-                            "Talent gewinnt Spiele, aber Teamwork und Intelligenz gewinnen Meisterschaften."
-                        </div>
+    <main class="about-section">
+        <div class="container">
+            <!-- Philosophie -->
+            <div class="content-block" id="philosophie">
+                <h2>Philosophie</h2>
+                <div class="philosophy-grid">
+                    <div>
+                        <p style="font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 500;">Fußball ist für viele von
+                            uns ein wichtiger Teil des Lebens – und das ist großartig! Dir Fußball nicht nur jede Menge
+                            Freude bereiten kann, sondern Dich auch körperlich und geistig fit hält.</p>
+                        <p style="margin-bottom: 2rem;">Auf den ersten Blick mag Fußball einfach aussehen: zwei
+                            Mannschaften, ein Ball, und das Ziel, mehr Tore zu schießen als der Gegner. Doch wenn du
+                            genauer hinsiehst, merkst Du ...</p>
+                        <h3
+                            style="background: var(--color-yellow); display: inline-block; padding: 0.5rem 1rem; font-weight: 900; margin-bottom: 1rem;">
+                            FUßBALL IST PROBLEMLÖSEN!</h3>
+                        <p>Es geht stets um drei Herausforderungen: den Ball kontrollieren, Torchancen kreieren, den
+                            Ball zurückerobern. Dies erfordert neben Talent viel Übung und Teamgeist. In diesem Sinne
+                            ist Fußball viel mehr als ein Spiel, es ist eine Schule fürs Leben.</p>
+                    </div>
+                    <div
+                        style="background: var(--color-primary-blue); padding: 3rem; color: white; border-radius: 8px;">
+                        <h4 style="color: var(--color-yellow); margin-bottom: 1.5rem;">DIE DREI SÄULEN</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: 1rem;"><strong>(I) Problemlösungsfähigkeiten:</strong> Das
+                                Erlernen und Beherrschen komplexer Situationen.</li>
+                            <li style="margin-bottom: 1rem;"><strong>(II) Disziplin:</strong> Die Ausdauer, regelmäßig
+                                und konzentriert zu üben.</li>
+                            <li><strong>(III) Gemeinschaft:</strong> Die Fähigkeit, erfolgreich im Team zu agieren.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- 2. Entwicklung -->
-        <section id="entwicklung" class="value-section" style="background: #080808;">
-            <div class="container">
-                <h2 class="value-title">2. Die Entwicklung</h2>
-                <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <p style="font-size: 1.2rem; color: #ccc;">
-                            Wir bieten kein 08/15-Training. Unser Ansatz basiert auf modernen Trainingsmethoden, die
-                            kindgerecht, aber fordernd sind. Wir schauen nicht nur auf das Ergebnis am Wochenende,
-                            sondern auf den langfristigen Weg jedes einzelnen Kindes.
-                            <br><br>
-                            Technik, Koordination und Spielintelligenz werden bei uns Schritt für Schritt aufgebaut. Wir
-                            geben jedem Kind die Zeit, die es braucht, aber auch die Anreize, die es will, um das
-                            nächste Level zu erreichen.
-                            Fehler sind bei uns willkommen – denn nur wer Fehler macht, kann daraus lernen und besser
-                            werden.
-                        </p>
-                        <div class="highlight-box">
-                            Unser Fokus liegt auf der individuellen Förderung im Kollektiv. Jeder Schritt zählt.
-                        </div>
+            <!-- Einstellung -->
+            <div class="content-block" id="einstellung">
+                <h2>Einstellung</h2>
+                <p style="font-size: 1.3rem; max-width: 800px;">Bevor Du Deine Fähigkeiten nutzen kannst, brauchst Du
+                    den Willen, diese zum Einsatz zu bringen. Diesen inneren Antrieb nennen man Einstellung.</p>
+
+                <div class="einstellung-cards">
+                    <div class="einstellung-card">
+                        <h4>Laufbereitschaft</h4>
+                        <p>Fußball ist ein Laufsport. Wer mehr läuft, hat mehr Optionen. Mehr Laufbereitschaft = Mehr
+                            Einfluss aufs Spiel.</p>
+                    </div>
+                    <div class="einstellung-card">
+                        <h4>Konzentration</h4>
+                        <p>Unkonzentriert = Unfall. 100% Fokus von der ersten bis zur letzten Minute. Das schuldest du
+                            deinem Team.</p>
+                    </div>
+                    <div class="einstellung-card">
+                        <h4>Siegeswille</h4>
+                        <p>Gibst du dich geschlagen? Siegeswille ist die Energie, die alles andere verbindet. Willst du
+                            es mehr als der Gegner?</p>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 3. Leidenschaft -->
-        <section id="leidenschaft" class="value-section">
+        <!-- Feedback -->
+        <div class="feedback-section">
             <div class="container">
-                <h2 class="value-title">3. Die Leidenschaft</h2>
-                <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <p style="font-size: 1.2rem; color: #ccc;">
-                            Gold, Schwarz und Blau sind nicht nur Farben – es ist eine Haltung. Wir wollen Kinder, deren
-                            Augen leuchten, wenn sie den Rasen betreten. Wir fördern die pure Freude am Spiel, den
-                            gesunden Wettbewerb und den Willen, niemals aufzugeben.
-                            <br><br>
-                            Leidenschaft bedeutet für uns auch Respekt: Respekt vor dem Gegner, dem Schiedsrichter und
-                            dem Spiel selbst. Wer bei uns spielt, trägt das Trikot mit Stolz. Wir kämpfen um jeden Ball,
-                            aber immer mit Fairplay. Das ist die Philosophie, die wir leben.
-                        </p>
-                        <div class="highlight-box">
-                            Leidenschaft ist der Treibstoff für Erfolg. Wir brennen für das Spiel.
-                        </div>
+                <h2 style="margin-bottom: 3rem;">Das sagen unsere Eltern</h2>
+                <div class="feedback-grid">
+                    <div class="quote">
+                        <p>"Hier wird nicht nur 'mitgekickt'. Man merkt, dass alle ein Ziel haben und im Training
+                            wirklich gearbeitet wird."</p>
+                    </div>
+                    <div class="quote">
+                        <p>"Was mir gefällt: Es wird erklärt, gezeigt und dann so lange wiederholt, bis es sitzt. Das
+                            sieht man am Wochenende sofort."</p>
+                    </div>
+                    <div class="quote">
+                        <p>"Die Trainer schauen hin – wirklich hin. Kleine Details werden korrigiert, und man merkt, wie
+                            schnell sich das auszahlt."</p>
+                    </div>
+                    <div class="quote">
+                        <p>"Man spürt einen roten Faden: Mit Ball, ohne Ball, im Umschalten – es ist nicht zufällig,
+                            sondern nachvollziehbar aufgebaut."</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <section style="padding: 6rem 0; text-align: center;">
-            <h3 style="margin-bottom: 2rem; color: #fff;">Bist du bereit?</h3>
-            <a href="index.html#kontakt" class="btn btn-primary" style="font-size: 1.5rem; padding: 1.5rem 3rem;">Werde
-                Teil des Teams</a>
-        </section>
+        </div>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
+        <div class="container" style="text-align: center; padding: 4rem 0; border-top: 1px solid #ddd;">
             <p>&copy; 2024 SV Glehn Jahrgang 2014.</p>
+            <a href="index.html"
+                style="color: var(--color-primary-blue); font-weight: 700; display: block; margin-top: 1rem; text-decoration: none;">ZURÜCK
+                ZUR NAVIGATION</a>
         </div>
     </footer>
 
