@@ -27,8 +27,8 @@
 
 body {
   font-family: var(--font-body);
-  background-color: #020B1A;
-  /* Deep dark blue background */
+  background-color: #0B1628;
+  /* Very dark navy from screenshot */
   color: #E5E7EB;
   /* Light text for readability */
   line-height: 1.6;
@@ -219,84 +219,95 @@ nav {
   color: rgba(255, 255, 255, 0.85);
 }
 
+/* Form Section */
 .form-section {
   padding: 6rem 0;
-  background-color: var(--color-white);
+  background-color: transparent;
 }
 
 .form-box {
-  background-color: var(--color-primary-blue);
+  background-color: #0A1628;
   padding: 4rem;
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto;
-  border-radius: 8px;
-  box-shadow: 0 20px 40px rgba(10, 42, 67, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 .form-box h2 {
-  color: var(--color-yellow);
+  color: #F4C430;
   text-align: center;
   margin-bottom: 3rem;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  letter-spacing: 0.05em;
 }
 
 .form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
+  display: block;
+}
+
+.form-group {
+  margin-bottom: 1.75rem;
 }
 
 .form-group-full {
-  grid-column: span 2;
+  grid-column: auto;
 }
 
 .form-group label {
   display: block;
-  color: #fff;
+  color: #F4C430;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   margin-bottom: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.1em;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.2rem;
-  color: white;
+  background-color: #050B14;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  color: #9CA3AF;
   border-radius: 4px;
   transition: all 0.3s ease;
+  font-size: 0.95rem;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #6B7280;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: var(--color-yellow);
-  box-shadow: 0 0 0 4px rgba(255, 204, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: #F4C430;
+  box-shadow: 0 0 0 3px rgba(244, 196, 48, 0.1);
 }
 
 .btn-submit {
   width: 100%;
-  background: var(--color-yellow);
-  color: var(--color-primary-blue);
+  background: #F4C430;
+  color: #0A1628;
   border: none;
-  padding: 1.5rem;
+  padding: 1.25rem;
   font-weight: 800;
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   border-radius: 4px;
   transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.05em;
 }
 
 .btn-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 204, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(244, 196, 48, 0.4);
 }
 
 /* Scrolled State (added via JS) */
