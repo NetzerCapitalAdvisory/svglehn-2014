@@ -17,6 +17,15 @@
             margin: 0 auto;
         }
 
+        .page-number {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 0.15);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
         .detail-page h1 {
             font-family: var(--font-serif);
             font-size: clamp(3rem, 6vw, 4.5rem);
@@ -65,6 +74,28 @@
         .skills-areas p strong {
             color: var(--color-gold);
         }
+
+        .back-button {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1rem 2rem;
+            border: 2px solid var(--color-gold);
+            background: transparent;
+            color: var(--color-gold);
+            font-family: var(--font-sans);
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: var(--color-gold);
+            color: var(--color-deep-navy);
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -85,6 +116,7 @@
 
     <main class="detail-page">
         <div class="container">
+            <div class="page-number">03</div>
             <h1>Fähigkeiten</h1>
 
             <p>Wir trainieren systematisch 29 Fähigkeiten, die dich als Fußballer ausmachen. Von der Grundtechnik bis
@@ -106,6 +138,8 @@
 
             <p style="margin-top: 4rem;">Durch die systematische Arbeit an allen vier Bereichen entwickeln sich unsere
                 Spieler zu kompletten Fußballern, die in jeder Situation die richtige Lösung finden.</p>
+
+            <a href="index.html" class="back-button">← Zurück zur Startseite</a>
         </div>
     </main>
 
