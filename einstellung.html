@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Einstellung - SV Glehn 2014</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: 80px;
+        }
+
+        .detail-page {
+            padding: 6rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .detail-page h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            margin-bottom: 2.5rem;
+            color: var(--color-gold);
+        }
+
+        .detail-page p {
+            font-size: 1.125rem;
+            line-height: 1.85;
+            margin-bottom: 1.75rem;
+            color: var(--color-text-light);
+        }
+
+        .einstellung-grid {
+            display: grid;
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .einstellung-item {
+            background: var(--color-navy-lighter);
+            border: 1px solid var(--color-border-subtle);
+            padding: 2.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .einstellung-item:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-4px);
+        }
+
+        .einstellung-item h3 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            margin: 0 0 1rem 0;
+            color: var(--color-gold);
+        }
+
+        .einstellung-item p {
+            margin: 0;
+            font-size: 1.125rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="brand"><a href="index.html" style="color: var(--color-gold); text-decoration: none;">SV
+                        Glehn '14</a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Startseite</a></li>
+                    <li><a href="index.html#probetraining">Probetraining</a></li>
+                    <li><a href="index.html#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="detail-page">
+        <div class="container">
+            <h1>Einstellung</h1>
+
+            <p>Bevor du deine Fähigkeiten nutzen kannst, brauchst du den Willen, diese zum Einsatz zu bringen. Diesen
+                inneren Antrieb nennt man Einstellung.</p>
+
+            <div class="einstellung-grid">
+                <div class="einstellung-item">
+                    <h3>Laufbereitschaft</h3>
+                    <p>Fußball ist ein Laufsport. Wer mehr läuft, hat mehr Optionen. Mehr Laufbereitschaft = Mehr
+                        Einfluss aufs Spiel.</p>
+                </div>
+
+                <div class="einstellung-item">
+                    <h3>Konzentration</h3>
+                    <p>Unkonzentriert = Unfall. 100% Fokus von der ersten bis zur letzten Minute. Das schuldest du
+                        deinem Team.</p>
+                </div>
+
+                <div class="einstellung-item">
+                    <h3>Siegeswille</h3>
+                    <p>Gibst du dich geschlagen? Siegeswille ist die Energie, die alles andere verbindet. Willst du es
+                        mehr als der Gegner?</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 4rem;">Diese drei Eigenschaften bilden das mentale Fundament für sportlichen Erfolg.
+                Ohne die richtige Einstellung bleiben selbst die besten Fähigkeiten ungenutzt.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SV Glehn Jahrgang 2014.</p>
+            <div style="margin-top: 1rem;">
+                <a href="index.html">Startseite</a>
+                <span style="margin: 0 1rem; color: var(--color-border-subtle);">|</span>
+                <a href="index.html#kontakt">Kontakt</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
