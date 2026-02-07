@@ -144,11 +144,13 @@ nav {
 }
 
 .hero-top-nav {
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
+  /* Further away from headline */
   font-family: var(--font-sans);
-  font-size: 0.875rem;
-  letter-spacing: 0.15em;
-  font-weight: 600;
+  font-size: 1.125rem;
+  /* Larger font */
+  letter-spacing: 0.2em;
+  font-weight: 700;
   color: var(--color-gold);
 }
 
@@ -160,12 +162,18 @@ nav {
 
 .hero-top-nav a:hover {
   opacity: 0.8;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .hero-top-nav .separator {
-  color: var(--color-border-subtle);
-  margin: 0 0.5rem;
+  color: var(--color-gold);
+  /* Gold separator */
+  font-weight: 300;
+  margin: 0 1.5rem;
+  /* More spacing around separator */
+  font-size: 1.5rem;
+  /* Larger separator */
+  vertical-align: middle;
 }
 
 .hero h1 {
