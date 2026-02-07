@@ -12,16 +12,65 @@
         }
 
         .detail-page {
-            padding: 6rem 0;
+            padding: 4rem 0 6rem;
             max-width: 900px;
             margin: 0 auto;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            color: var(--color-gold);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            margin-bottom: 3rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Page Number with Lines */
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .page-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-gold);
+            line-height: 1;
+        }
+
+        .decorative-lines {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-width: 150px;
+        }
+
+        .decorative-lines span {
+            height: 1px;
+            background: var(--color-gold);
+            opacity: 0.3;
         }
 
         .detail-page h1 {
             font-family: var(--font-serif);
             font-size: clamp(3rem, 6vw, 4.5rem);
             margin-bottom: 2.5rem;
-            color: var(--color-gold);
+            color: var(--color-white);
+            line-height: 1.1;
         }
 
         .detail-page p {
@@ -61,37 +110,6 @@
             margin: 0;
             font-size: 1.125rem;
         }
-
-        .page-number {
-            font-family: var(--font-serif);
-            font-size: 4rem;
-            font-weight: 900;
-            color: rgba(212, 175, 55, 0.15);
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .back-button {
-            display: inline-block;
-            margin-top: 3rem;
-            padding: 1rem 2rem;
-            border: 2px solid var(--color-gold);
-            background: transparent;
-            color: var(--color-gold);
-            font-family: var(--font-sans);
-            font-weight: 700;
-            font-size: 0.875rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .back-button:hover {
-            background: var(--color-gold);
-            color: var(--color-deep-navy);
-            transform: translateY(-2px);
-        }
     </style>
 </head>
 
@@ -112,7 +130,16 @@
 
     <main class="detail-page">
         <div class="container">
-            <div class="page-number">02</div>
+            <a href="index.html" class="back-link">← ZURÜCK</a>
+
+            <div class="page-header">
+                <div class="page-number">02</div>
+                <div class="decorative-lines">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
             <h1>Einstellung</h1>
 
             <p>Bevor du deine Fähigkeiten nutzen kannst, brauchst du den Willen, diese zum Einsatz zu bringen. Diesen
@@ -140,8 +167,6 @@
 
             <p style="margin-top: 4rem;">Diese drei Eigenschaften bilden das mentale Fundament für sportlichen Erfolg.
                 Ohne die richtige Einstellung bleiben selbst die besten Fähigkeiten ungenutzt.</p>
-
-            <a href="index.html" class="back-button">← Zurück zur Startseite</a>
         </div>
     </main>
 

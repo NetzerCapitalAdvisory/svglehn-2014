@@ -12,16 +12,65 @@
         }
 
         .detail-page {
-            padding: 6rem 0;
+            padding: 4rem 0 6rem;
             max-width: 900px;
             margin: 0 auto;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            color: var(--color-gold);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            margin-bottom: 3rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Page Number with Lines */
+        .page-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .page-number {
+            font-family: var(--font-serif);
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--color-gold);
+            line-height: 1;
+        }
+
+        .decorative-lines {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            max-width: 150px;
+        }
+
+        .decorative-lines span {
+            height: 1px;
+            background: var(--color-gold);
+            opacity: 0.3;
         }
 
         .detail-page h1 {
             font-family: var(--font-serif);
             font-size: clamp(3rem, 6vw, 4.5rem);
             margin-bottom: 2.5rem;
-            color: var(--color-gold);
+            color: var(--color-white);
+            line-height: 1.1;
         }
 
         .detail-page h3 {
@@ -85,6 +134,16 @@
 
     <main class="detail-page">
         <div class="container">
+            <a href="index.html" class="back-link">← ZURÜCK</a>
+
+            <div class="page-header">
+                <div class="page-number">01</div>
+                <div class="decorative-lines">
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+
             <h1>Philosophie</h1>
 
             <p>Fußball ist für viele von uns ein wichtiger Teil des Lebens – und das ist großartig! Fußball kann dir
