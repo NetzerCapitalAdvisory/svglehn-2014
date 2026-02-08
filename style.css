@@ -122,6 +122,24 @@ nav {
   width: 100%;
 }
 
+/* Kontakt Button in Nav */
+.nav-links li:last-child a {
+  background: var(--color-gold);
+  color: var(--color-deep-navy);
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.nav-links li:last-child a:hover {
+  background: #b5952f;
+  color: var(--color-deep-navy);
+}
+
+.nav-links li:last-child a::after {
+  display: none;
+}
+
 /* Hero Section */
 .hero {
   padding: 8rem 0 8rem;
@@ -606,12 +624,13 @@ footer a:hover {
 .title-wrapper::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100px;
-  /* Longer horizontal line */
-  height: 4px;
-  /* Thicker horizontal line */
+  top: 1.5rem;
+  /* Offset from top */
+  left: -80px;
+  /* Move to left of title */
+  width: 60px;
+  height: 1px;
+  /* Thinner horizontal line */
   background: var(--color-gold);
 }
 
@@ -637,8 +656,8 @@ footer a:hover {
 }
 
 .content-wrapper {
-  border-left: 4px solid var(--color-gold);
-  /* Thicker vertical line, gold */
+  border-left: 1px solid var(--color-gold);
+  /* Thinner vertical line */
   padding-left: 3rem;
   margin-top: 2rem;
   position: relative;
