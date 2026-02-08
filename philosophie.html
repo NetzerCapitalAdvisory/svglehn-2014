@@ -27,7 +27,7 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             text-decoration: none;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             transition: opacity 0.3s ease;
         }
 
@@ -35,44 +35,55 @@
             opacity: 0.7;
         }
 
-        /* Page Number with Lines */
-        .page-header {
+        /* New Header Layout */
+        .header-content {
+            position: relative;
+            margin-bottom: 5rem;
             display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
-        .page-number {
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--color-gold);
-            line-height: 1;
+        .title-wrapper {
+            position: relative;
+            padding-top: 2rem;
+            /* Space for the line */
+            z-index: 2;
         }
 
-        .decorative-lines {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            max-width: 150px;
-        }
-
-        .decorative-lines span {
-            height: 1px;
+        .title-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
             background: var(--color-gold);
-            opacity: 0.3;
         }
 
         .detail-page h1 {
             font-family: var(--font-serif);
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            margin-bottom: 2.5rem;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin: 0;
             color: var(--color-white);
             line-height: 1.1;
         }
 
+        .big-number {
+            font-family: var(--font-serif);
+            font-size: 15rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.03);
+            /* Subtle watermark effect */
+            line-height: 0.8;
+            position: absolute;
+            right: -2rem;
+            top: -3rem;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Content Styling */
         .detail-page h3 {
             font-family: var(--font-serif);
             font-size: 2rem;
@@ -87,6 +98,17 @@
             line-height: 1.85;
             margin-bottom: 1.75rem;
             color: var(--color-text-light);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Vertical Line for Content */
+        .content-wrapper {
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
+            padding-left: 3rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
         }
 
         .highlight-box {
@@ -96,12 +118,6 @@
             padding: 2.5rem;
             margin: 3rem 0;
             border-radius: 8px;
-        }
-
-        .highlight-box h3 {
-            color: var(--color-gold);
-            margin-top: 0;
-            font-size: 1.75rem;
         }
     </style>
 </head>
@@ -125,41 +141,40 @@
         <div class="container">
             <a href="index.html" class="back-link">← ZURÜCK</a>
 
-            <div class="page-header">
-                <div class="page-number">01</div>
-                <div class="decorative-lines">
-                    <span></span>
-                    <span></span>
+            <div class="header-content">
+                <div class="title-wrapper">
+                    <h1>Philosophie</h1>
                 </div>
+                <div class="big-number">01</div>
             </div>
 
-            <h1>Philosophie</h1>
+            <div class="content-wrapper">
+                <p>Fußball ist fur viele von uns ein wichtiger Teil des Lebens - und das ist großartig! Es ist
+                    großartig, weil Dir Fußball nicht nur jede Menge Freude bereiten kann, sondern Dich auch körperlich
+                    und geistig fit hält. Es gibt zudem kaum etwas anderes, das Menschen so verbindet - egal, ob jung
+                    oder alt, aus unterschiedlichen Ländern oder sozialen Schichten. Über Fußball kann jeder mit jedem
+                    reden. Auf dem Platz, auf den Rängen oder auch gemeinsam vor dem Fernseher fühlt man sich als Teil
+                    einer großen Gemeinschaft.</p>
 
-            <p>Fußball ist fur viele von uns ein wichtiger Teil des Lebens - und das ist großartig! Es ist großartig,
-                weil Dir Fußball nicht nur jede Menge Freude bereiten kann, sondern Dich auch körperlich und geistig fit
-                hält. Es gibt zudem kaum etwas anderes, das Menschen so verbindet - egal, ob jung oder alt, aus
-                unterschiedlichen Ländern oder sozialen Schichten. Über Fußball kann jeder mit jedem reden. Auf dem
-                Platz, auf den Rängen oder auch gemeinsam vor dem Fernseher fühlt man sich als Teil einer großen
-                Gemeinschaft.</p>
+                <p>Auf den ersten Blick mag Fußball einfach aussehen: zwei Mannschaften, ein Ball, und das Ziel, mehr
+                    Tore zu schießen als der Gegner. Doch wenn du genauer hinsiehst, merkst Du ...</p>
 
-            <p>Auf den ersten Blick mag Fußball einfach aussehen: zwei Mannschaften, ein Ball, und das Ziel, mehr Tore
-                zu schießen als der Gegner. Doch wenn du genauer hinsiehst, merkst Du ...</p>
+                <h3>FUßBALL IST PROBLEMLÖSEN!</h3>
 
-            <h3>FUßBALL IST PROBLEMLÖSEN!</h3>
+                <p>Es geht stets um drei Herausforderungen: den Ball kontrollieren, Torchancen kreieren, den Ball
+                    zurückerobern. Diese Herausforderungen müssen gelöst werden, egal, ob Du in der Kreisliga oder in
+                    der Bundesliga spielst.</p>
 
-            <p>Es geht stets um drei Herausforderungen: den Ball kontrollieren, Torchancen kreieren, den Ball
-                zurückerobern. Diese Herausforderungen müssen gelöst werden, egal, ob Du in der Kreisliga oder in der
-                Bundesliga spielst.</p>
+                <p>Das Faszinierende am Fußball ist, dass es vor allem darum geht, schnell gute Lösungen für diese
+                    Herausforderungen zu finden - das erfordert neben Talent viel Übung und Teamgeist.</p>
 
-            <p>Das Faszinierende am Fußball ist, dass es vor allem darum geht, schnell gute Lösungen für diese
-                Herausforderungen zu finden - das erfordert neben Talent viel Übung und Teamgeist.</p>
-
-            <div class="highlight-box">
-                <p style="font-weight: 500; font-size: 1.2rem; color: #fff; margin-bottom: 0;">In diesem Sinne ist
-                    Fußball viel mehr als ein Spiel, es ist eine Schule fürs Leben. Schließlich sind (I) das Erlernen
-                    und Beherrschen von Problemlösungsfähigkeiten, (II) die Disziplin, regelmäßig zu üben und (III) die
-                    Fähigkeit, in der Gemeinschaft zu agieren, drei der wichtigsten Voraussetzungen, um erfolgreich
-                    durch das Leben zu marschieren.</p>
+                <div class="highlight-box">
+                    <p style="font-weight: 500; font-size: 1.2rem; color: #fff; margin-bottom: 0;">In diesem Sinne ist
+                        Fußball viel mehr als ein Spiel, es ist eine Schule fürs Leben. Schließlich sind (I) das
+                        Erlernen und Beherrschen von Problemlösungsfähigkeiten, (II) die Disziplin, regelmäßig zu üben
+                        und (III) die Fähigkeit, in der Gemeinschaft zu agieren, drei der wichtigsten Voraussetzungen,
+                        um erfolgreich durch das Leben zu marschieren.</p>
+                </div>
             </div>
         </div>
     </main>
