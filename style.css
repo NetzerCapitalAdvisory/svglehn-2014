@@ -181,15 +181,19 @@ nav {
   color: #0B132B;
 }
 
-/* Detail Page Line Styles - NCA Leadership Style with Fade */
+/* Detail Page Line Styles - NCA Leadership Style with Dramatic Fade */
 .title-wrapper::before {
   content: '';
   position: absolute;
   top: 50%;
-  left: -120px;
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(to right, transparent 0%, rgba(212, 175, 55, 0.6) 100%);
+  left: -100px;
+  /* Closer to title */
+  width: 90px;
+  /* Longer */
+  height: 2px;
+  /* Thicker for visibility */
+  background: linear-gradient(to right, rgba(212, 175, 55, 0.8) 0%, transparent 100%);
+  /* Reverse: gold fading out */
   transform: translateY(-50%);
 }
 
@@ -203,7 +207,8 @@ nav {
 }
 
 .content-wrapper {
-  border-left: 1px solid rgba(212, 175, 55, 0.5);
+  border-left: 2px solid rgba(212, 175, 55, 0.7);
+  /* Thicker and more visible */
   padding-left: 3rem;
   margin-top: 3rem;
   position: relative;
