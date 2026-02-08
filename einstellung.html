@@ -17,69 +17,6 @@
             margin: 0 auto;
         }
 
-        /* Back Link */
-        .back-link {
-            display: inline-block;
-            color: var(--color-gold);
-            font-family: var(--font-sans);
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            text-decoration: none;
-            margin-bottom: 3rem;
-            transition: opacity 0.3s ease;
-        }
-
-        .back-link:hover {
-            opacity: 0.7;
-        }
-
-        /* Page Number with Lines */
-        .page-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .page-number {
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--color-gold);
-            line-height: 1;
-        }
-
-        .decorative-lines {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            max-width: 150px;
-        }
-
-        .decorative-lines span {
-            height: 1px;
-            background: var(--color-gold);
-            opacity: 0.3;
-        }
-
-        .detail-page h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            margin-bottom: 2.5rem;
-            color: var(--color-white);
-            line-height: 1.1;
-        }
-
-        .detail-page p {
-            font-size: 1.125rem;
-            line-height: 1.85;
-            margin-bottom: 1.75rem;
-            color: var(--color-text-light);
-        }
-
         .einstellung-grid {
             display: grid;
             gap: 2.5rem;
@@ -110,6 +47,13 @@
             margin: 0;
             font-size: 1.125rem;
         }
+
+        .detail-page p {
+            font-size: 1.125rem;
+            line-height: 1.85;
+            margin-bottom: 1.75rem;
+            color: var(--color-text-light);
+        }
     </style>
 </head>
 
@@ -132,41 +76,40 @@
         <div class="container">
             <a href="index.html" class="back-link">← ZURÜCK</a>
 
-            <div class="page-header">
-                <div class="page-number">02</div>
-                <div class="decorative-lines">
-                    <span></span>
-                    <span></span>
+            <div class="header-content">
+                <div class="title-wrapper">
+                    <h1>Einstellung</h1>
                 </div>
+                <div class="big-number">02</div>
             </div>
 
-            <h1>Einstellung</h1>
+            <div class="content-wrapper">
+                <p>Bevor du deine Fähigkeiten nutzen kannst, brauchst du den Willen, diese zum Einsatz zu bringen.
+                    Diesen inneren Antrieb nennt man Einstellung.</p>
 
-            <p>Bevor du deine Fähigkeiten nutzen kannst, brauchst du den Willen, diese zum Einsatz zu bringen. Diesen
-                inneren Antrieb nennt man Einstellung.</p>
+                <div class="einstellung-grid">
+                    <div class="einstellung-item">
+                        <h3>Laufbereitschaft</h3>
+                        <p>Fußball ist ein Laufsport. Wer mehr läuft, hat mehr Optionen. Mehr Laufbereitschaft = Mehr
+                            Einfluss aufs Spiel.</p>
+                    </div>
 
-            <div class="einstellung-grid">
-                <div class="einstellung-item">
-                    <h3>Laufbereitschaft</h3>
-                    <p>Fußball ist ein Laufsport. Wer mehr läuft, hat mehr Optionen. Mehr Laufbereitschaft = Mehr
-                        Einfluss aufs Spiel.</p>
+                    <div class="einstellung-item">
+                        <h3>Konzentration</h3>
+                        <p>Unkonzentriert = Unfall. 100% Fokus von der ersten bis zur letzten Minute. Das schuldest du
+                            deinem Team.</p>
+                    </div>
+
+                    <div class="einstellung-item">
+                        <h3>Siegeswille</h3>
+                        <p>Gibst du dich geschlagen? Siegeswille ist die Energie, die alles andere verbindet. Willst du
+                            es mehr als der Gegner?</p>
+                    </div>
                 </div>
 
-                <div class="einstellung-item">
-                    <h3>Konzentration</h3>
-                    <p>Unkonzentriert = Unfall. 100% Fokus von der ersten bis zur letzten Minute. Das schuldest du
-                        deinem Team.</p>
-                </div>
-
-                <div class="einstellung-item">
-                    <h3>Siegeswille</h3>
-                    <p>Gibst du dich geschlagen? Siegeswille ist die Energie, die alles andere verbindet. Willst du es
-                        mehr als der Gegner?</p>
-                </div>
+                <p style="margin-top: 4rem;">Diese drei Eigenschaften bilden das mentale Fundament für sportlichen
+                    Erfolg. Ohne die richtige Einstellung bleiben selbst die besten Fähigkeiten ungenutzt.</p>
             </div>
-
-            <p style="margin-top: 4rem;">Diese drei Eigenschaften bilden das mentale Fundament für sportlichen Erfolg.
-                Ohne die richtige Einstellung bleiben selbst die besten Fähigkeiten ungenutzt.</p>
         </div>
     </main>
 

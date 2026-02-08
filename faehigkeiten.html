@@ -17,91 +17,6 @@
             margin: 0 auto;
         }
 
-        /* Back Link */
-        .back-link {
-            display: inline-block;
-            color: var(--color-gold);
-            font-family: var(--font-sans);
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            text-decoration: none;
-            margin-bottom: 3rem;
-            transition: opacity 0.3s ease;
-        }
-
-        .back-link:hover {
-            opacity: 0.7;
-        }
-
-        /* Page Number with Lines */
-        .page-header {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        .page-number {
-            font-family: var(--font-serif);
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--color-gold);
-            line-height: 1;
-        }
-
-        .decorative-lines {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            max-width: 150px;
-        }
-
-        .decorative-lines span {
-            height: 1px;
-            background: var(--color-gold);
-            opacity: 0.3;
-        }
-
-        .detail-page h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            margin-bottom: 2.5rem;
-            color: var(--color-white);
-            line-height: 1.1;
-        }
-
-        .detail-page h3 {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            margin: 3rem 0 1.5rem;
-            color: var(--color-white);
-        }
-
-        .detail-page p {
-            font-size: 1.125rem;
-            line-height: 1.85;
-            margin-bottom: 1.75rem;
-            color: var(--color-text-light);
-        }
-
-        .highlight-box {
-            background: var(--color-navy-lighter);
-            border: 1px solid var(--color-border-subtle);
-            border-left: 4px solid var(--color-gold);
-            padding: 2.5rem;
-            margin: 3rem 0;
-            border-radius: 8px;
-        }
-
-        .highlight-box h3 {
-            color: var(--color-gold);
-            margin-top: 0;
-            font-size: 1.75rem;
-        }
-
         .skills-areas {
             margin-top: 2rem;
         }
@@ -109,10 +24,20 @@
         .skills-areas p {
             padding-left: 1.5rem;
             position: relative;
+            margin-bottom: 1rem;
         }
 
         .skills-areas p strong {
             color: var(--color-gold);
+            display: inline-block;
+            min-width: 100px;
+        }
+
+        .detail-page p {
+            font-size: 1.125rem;
+            line-height: 1.85;
+            margin-bottom: 1.75rem;
+            color: var(--color-text-light);
         }
     </style>
 </head>
@@ -136,35 +61,36 @@
         <div class="container">
             <a href="index.html" class="back-link">← ZURÜCK</a>
 
-            <div class="page-header">
-                <div class="page-number">03</div>
-                <div class="decorative-lines">
-                    <span></span>
-                    <span></span>
+            <div class="header-content">
+                <div class="title-wrapper">
+                    <h1>Fähigkeiten</h1>
                 </div>
+                <div class="big-number">03</div>
             </div>
 
-            <h1>Fähigkeiten</h1>
+            <div class="content-wrapper">
+                <p>Wir trainieren systematisch 29 Fähigkeiten, die dich als Fußballer ausmachen. Von der Grundtechnik
+                    bis zum mannschaftlichen Aufbauspiel.</p>
 
-            <p>Wir trainieren systematisch 29 Fähigkeiten, die dich als Fußballer ausmachen. Von der Grundtechnik bis
-                zum mannschaftlichen Aufbauspiel.</p>
+                <div class="highlight-box">
+                    <h3>Ganzheitliches Training</h3>
+                    <p>Jede Trainingseinheit zielt darauf ab, mehrere dieser Fähigkeiten gleichzeitig zu entwickeln. So
+                        garantieren wir schnellen, messbaren Fortschritt für jeden Spieler.</p>
+                </div>
 
-            <div class="highlight-box">
-                <h3>Ganzheitliches Training</h3>
-                <p>Jede Trainingseinheit zielt darauf ab, mehrere dieser Fähigkeiten gleichzeitig zu entwickeln. So
-                    garantieren wir schnellen, messbaren Fortschritt für jeden Spieler.</p>
+                <h3>Kernbereiche</h3>
+                <div class="skills-areas">
+                    <p><strong>Technisch:</strong> Ballkontrolle, Passspiel, Dribbling, Schuss, Flanken, Kopfballspiel
+                    </p>
+                    <p><strong>Taktisch:</strong> Positionsspiel, Raumverhalten, Spielübersicht, Pressing, Umschaltspiel
+                    </p>
+                    <p><strong>Mental:</strong> Entscheidungsfindung, Spielintelligenz, Teamwork, Kommunikation</p>
+                    <p><strong>Athletisch:</strong> Schnelligkeit, Ausdauer, Koordination, Beweglichkeit, Kraft</p>
+                </div>
+
+                <p style="margin-top: 4rem;">Durch die systematische Arbeit an allen vier Bereichen entwickeln sich
+                    unsere Spieler zu kompletten Fußballern, die in jeder Situation die richtige Lösung finden.</p>
             </div>
-
-            <h3>Kernbereiche</h3>
-            <div class="skills-areas">
-                <p><strong>Technisch:</strong> Ballkontrolle, Passspiel, Dribbling, Schuss, Flanken, Kopfballspiel</p>
-                <p><strong>Taktisch:</strong> Positionsspiel, Raumverhalten, Spielübersicht, Pressing, Umschaltspiel</p>
-                <p><strong>Mental:</strong> Entscheidungsfindung, Spielintelligenz, Teamwork, Kommunikation</p>
-                <p><strong>Athletisch:</strong> Schnelligkeit, Ausdauer, Koordination, Beweglichkeit, Kraft</p>
-            </div>
-
-            <p style="margin-top: 4rem;">Durch die systematische Arbeit an allen vier Bereichen entwickeln sich unsere
-                Spieler zu kompletten Fußballern, die in jeder Situation die richtige Lösung finden.</p>
         </div>
     </main>
 
