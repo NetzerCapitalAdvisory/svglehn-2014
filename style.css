@@ -181,7 +181,7 @@ nav {
   color: #0B132B;
 }
 
-/* Detail Page Line Styles - Adjusted positions */
+/* Detail Page Line Styles - NCA Leadership Style */
 .title-wrapper::before {
   content: '';
   position: absolute;
@@ -192,8 +192,8 @@ nav {
   width: 60px;
   height: 1px;
   background: var(--color-gold);
-  transform: translateY(50%);
-  /* Adjust centering */
+  transform: translateY(-50%);
+  /* Correct centering */
 }
 
 .detail-page h1 {
@@ -203,7 +203,6 @@ nav {
   color: var(--color-white);
   line-height: 1.1;
   position: relative;
-  /* Ensure title is relative for line positioning context if needed */
 }
 
 .content-wrapper {
@@ -213,8 +212,8 @@ nav {
   /* More space */
   position: relative;
   z-index: 2;
-  margin-left: 20px;
-  /* Indent content slightly */
+  margin-left: 0;
+  /* No indent, line serves as boundary */
 }
 
 /* Hero Section */
