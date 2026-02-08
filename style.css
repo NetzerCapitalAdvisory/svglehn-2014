@@ -542,3 +542,21 @@ footer a:hover {
     padding: 3rem 2rem;
   }
 }
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-deep-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 6px;
+  border: 3px solid var(--color-deep-navy);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b5952f;
+}
