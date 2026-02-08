@@ -151,12 +151,12 @@ nav {
   width: 100%;
 }
 
-/* Hero CTA Button - Gold Gradient */
+/* Hero CTA Button - Solid Gold */
 .btn-cta {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: linear-gradient(135deg, #D4AF37 0%, #F2D06B 100%);
-  /* Gold Gradient */
+  background: #D4AF37;
+  /* Solid gold */
   border: none;
   color: #0B132B;
   /* Dark Text */
@@ -170,14 +170,15 @@ nav {
   transition: all 0.3s ease;
   cursor: pointer;
   margin-top: 2rem;
+  border-radius: 4px;
   box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
 }
 
 .btn-cta:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-  background: linear-gradient(135deg, #F2D06B 0%, #D4AF37 100%);
-  /* Reverse Gradient */
+  background: #F2D06B;
+  /* Lighter gold on hover */
   color: #0B132B;
 }
 
