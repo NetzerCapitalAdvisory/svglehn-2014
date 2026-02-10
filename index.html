@@ -14,7 +14,8 @@
   <header>
     <div class="container">
       <nav>
-        <div class="brand">SV Glehn '14</div>
+        <div class="brand"><a href="#kontakt" style="color: var(--color-text-light); text-decoration: none;">SV Glehn
+            '14</a></div>
         <ul class="nav-links">
           <li><a href="#probetraining" style="color: var(--color-gold); font-weight: 700;">PROBETRAINING VEREINBAREN</a>
           </li>
@@ -114,11 +115,6 @@
         <h2>Komm zum<br>Probetraining</h2>
         <form action="https://formspree.io/f/xnjzrdjv" method="POST">
           <div class="form-group">
-            <label for="parentName">NAME DER ELTERN</label>
-            <input type="text" id="parentName" name="parentName" required placeholder="Dein Name">
-          </div>
-
-          <div class="form-group">
             <label for="childName">NAME DES KINDES</label>
             <input type="text" id="childName" name="childName" required placeholder="Vorname des Kindes">
           </div>
@@ -134,8 +130,22 @@
           </div>
 
           <div class="form-group">
+            <label for="currentClub">AKTUELLER VEREIN</label>
+            <input type="text" id="currentClub" name="currentClub" placeholder="Name deines aktuellen Vereins">
+          </div>
+
+          <div class="form-group">
             <label for="message">NACHRICHT (OPTIONAL)</label>
             <textarea id="message" name="message" rows="4" placeholder="Weitere Informationen..."></textarea>
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.75rem;">
+            <input type="checkbox" id="confirmation" name="confirmation" required
+              style="margin-top: 0.25rem; width: auto; flex-shrink: 0;">
+            <label for="confirmation" style="font-size: 0.875rem; line-height: 1.5; font-weight: 400;">
+              Ich bestätige, meinen aktuellen Verein vor meinem Probetraining von mir zu informieren und diesem zusammen
+              mit meiner individuellen Beurteilung mitzuteilen.
+            </label>
           </div>
 
           <button type="submit" class="btn-submit">Anmeldung absenden</button>
