@@ -151,42 +151,43 @@ nav {
   width: 100%;
 }
 
-/* Hero CTA Button - Locked Style (Per User Request) */
+/* Hero CTA Button - PERMANENT BRIGHT GOLD (No Hover Change) */
 .btn-cta {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: #E3C565 !important;
-  /* Matte Gold from image */
-  color: #0B132B;
-  /* Dark Text */
+  background: #FFD700 !important;
+  /* Bright Glowing Gold ALWAYS */
+  color: #0B132B !important;
+  /* Deep Black Text ALWAYS */
   font-family: var(--font-white);
   font-weight: 800;
-  /* Bolder text */
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-decoration: none;
   cursor: default;
-  /* No pointer to indicate interactivity change */
+  /* Use default cursor to imply no interaction change, or pointer if it's a link */
+  cursor: pointer;
+  /* It's a link, so pointer is better, even if style doesn't change */
   margin-top: 2rem;
   border-radius: 4px;
   border: none;
-  box-shadow: none;
-  /* No shadow */
-  transition: none;
-  /* No transition */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+  /* Permanent Glow Shadow */
+  transition: none !important;
+  /* KILL ALL ANIMATIONS */
 }
 
-/* Ensure HOVER state isIDENTICAL to normal state */
+/* Identical state for hover/focus/active - NO CHANGE ALLOWED */
 .btn-cta:hover,
 .btn-cta:focus,
 .btn-cta:active {
-  background: #E3C565 !important;
-  color: #0B132B;
-  transform: none;
-  box-shadow: none;
-  border: none;
-  outline: none;
+  background: #FFD700 !important;
+  color: #0B132B !important;
+  transform: none !important;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
+  border: none !important;
+  outline: none !important;
 }
 
 /* Detail Page Line Styles */
