@@ -151,12 +151,12 @@ nav {
   width: 100%;
 }
 
-/* Hero CTA Button - Permanently Glowing Gold */
+/* Hero CTA Button - Locked Style (Per User Request) */
 .btn-cta {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: #FFD700 !important;
-  /* Brighter gold by default */
+  background: #E3C565 !important;
+  /* Matte Gold from image */
   color: #0B132B;
   /* Dark Text */
   font-family: var(--font-white);
@@ -166,23 +166,27 @@ nav {
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  cursor: default;
+  /* No pointer to indicate interactivity change */
   margin-top: 2rem;
   border-radius: 4px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-  /* Permanent distinct glow */
-  border: 1px solid rgba(255, 215, 0, 0.8);
-  /* Slight border to define edges */
+  border: none;
+  box-shadow: none;
+  /* No shadow */
+  transition: none;
+  /* No transition */
 }
 
-.btn-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
-  /* Even stronger glow on hover */
-  background: #FFDF33 !important;
-  /* Slightly lighter on hover */
+/* Ensure HOVER state isIDENTICAL to normal state */
+.btn-cta:hover,
+.btn-cta:focus,
+.btn-cta:active {
+  background: #E3C565 !important;
   color: #0B132B;
+  transform: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
 }
 
 /* Detail Page Line Styles */
