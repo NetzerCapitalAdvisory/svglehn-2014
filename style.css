@@ -151,12 +151,12 @@ nav {
   width: 100%;
 }
 
-/* Hero CTA Button - Solid Gold */
+/* Hero CTA Button - Glowing Gold */
 .btn-cta {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: #D4AF37 !important;
-  /* Force solid gold */
+  background: #F5C542 !important;
+  /* Brighter, glowing gold per user request */
   color: #0B132B;
   /* Dark Text */
   font-family: var(--font-white);
@@ -170,31 +170,22 @@ nav {
   cursor: pointer;
   margin-top: 2rem;
   border-radius: 4px;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 0 15px rgba(245, 197, 66, 0.6);
+  /* Glowing effect */
 }
 
 .btn-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
-  background: #F2D06B;
-  /* Lighter gold on hover */
+  box-shadow: 0 0 25px rgba(245, 197, 66, 0.8);
+  background: #FFD700 !important;
+  /* Even brighter on hover */
   color: #0B132B;
 }
 
-/* Detail Page Line Styles - NCA Leadership Style with Dramatic Fade */
+/* Detail Page Line Styles */
 .title-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: -100px;
-  /* Closer to title */
-  width: 90px;
-  /* Longer */
-  height: 2px;
-  /* Thicker for visibility */
-  background: linear-gradient(to right, rgba(212, 175, 55, 0.8) 0%, transparent 100%);
-  /* Reverse: gold fading out */
-  transform: translateY(-50%);
+  display: none;
+  /* Remove horizontal line per user request */
 }
 
 .detail-page h1 {
