@@ -151,12 +151,12 @@ nav {
   width: 100%;
 }
 
-/* Hero CTA Button - Glowing Gold */
+/* Hero CTA Button - Permanently Glowing Gold */
 .btn-cta {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: #F5C542 !important;
-  /* Brighter, glowing gold per user request */
+  background: #FFD700 !important;
+  /* Brighter gold by default */
   color: #0B132B;
   /* Dark Text */
   font-family: var(--font-white);
@@ -170,15 +170,18 @@ nav {
   cursor: pointer;
   margin-top: 2rem;
   border-radius: 4px;
-  box-shadow: 0 0 15px rgba(245, 197, 66, 0.6);
-  /* Glowing effect */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+  /* Permanent distinct glow */
+  border: 1px solid rgba(255, 215, 0, 0.8);
+  /* Slight border to define edges */
 }
 
 .btn-cta:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(245, 197, 66, 0.8);
-  background: #FFD700 !important;
-  /* Even brighter on hover */
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.9);
+  /* Even stronger glow on hover */
+  background: #FFDF33 !important;
+  /* Slightly lighter on hover */
   color: #0B132B;
 }
 
