@@ -155,9 +155,8 @@ nav {
 .btn-cta {
   display: inline-block;
   padding: 1rem 2.5rem;
-  background: #D4AF37;
-  /* Solid gold */
-  border: none;
+  background: #D4AF37 !important;
+  /* Force solid gold */
   color: #0B132B;
   /* Dark Text */
   font-family: var(--font-white);
