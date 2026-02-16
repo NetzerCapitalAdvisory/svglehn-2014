@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Warum S.V. Glehn? - SV Glehn 2014</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            padding-top: 80px;
+        }
+
+        .detail-page {
+            padding: 4rem 0 6rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            color: var(--color-gold);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            margin-bottom: 4rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Header Layout */
+        .header-content {
+            position: relative;
+            margin-bottom: 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .title-wrapper {
+            position: relative;
+            padding-top: 2rem;
+            z-index: 2;
+        }
+
+        .title-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--color-gold);
+        }
+
+        .detail-page h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin: 0;
+            color: var(--color-white);
+            line-height: 1.1;
+        }
+
+        .big-number {
+            font-family: var(--font-serif);
+            font-size: 15rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.03);
+            line-height: 0.8;
+            position: absolute;
+            right: -2rem;
+            top: -3rem;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Content Styling */
+        .content-wrapper {
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
+            padding-left: 3rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .points-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .points-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .point-item h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            color: var(--color-gold);
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .point-item p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+
+        .outro-text {
+            margin-top: 4rem;
+            font-size: 1.25rem;
+            color: var(--color-white);
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="brand"><a href="index.html"
+                        style="color: var(--color-text-light); text-decoration: none;">S.V. Glehn '14</a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html#probetraining">Probetraining</a></li>
+                    <li><a href="index.html#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="detail-page">
+        <div class="container">
+            <a href="index.html" class="back-link">← ZURÜCK</a>
+
+            <div class="header-content">
+                <div class="title-wrapper">
+                    <h1>Warum<br>S.V. Glehn?</h1>
+                </div>
+                <!-- Optional: A number or icon could go here, omitting for now or using '04' -->
+                <div class="big-number">04</div>
+            </div>
+
+            <div class="content-wrapper">
+                <div class="points-grid">
+                    <div class="point-item">
+                        <h3>Starke Mannschaft</h3>
+                        <p>Intensität, Teamgeist und Spaß am Fußball – bei uns zählt Leistung in der Gemeinschaft.</p>
+                    </div>
+
+                    <div class="point-item">
+                        <h3>Hohe Trainingsqualität</h3>
+                        <p>Du trainierst mit Spielern, die etwas erreichen wollen. Mit strukturiertem, zielorientiertem,
+                            aber abwechslungsreichem Training heben wir dein Niveau Woche für Woche.</p>
+                    </div>
+
+                    <div class="point-item">
+                        <h3>Individuelle Entwicklung</h3>
+                        <p>Ein Trainer-Spieler-Verhältnis, das individuelles Coaching, schnelle Korrekturen und
+                            messbaren Fortschritt garantiert.</p>
+                    </div>
+
+                    <div class="point-item">
+                        <h3>Leistungsfördernde Intensität</h3>
+                        <p>Wir bieten pro Woche 5 Einheiten (inkl. Spiel) an, um durch eine hohe Anzahl an
+                            Wiederholungen die Fähigkeiten gezielt einzuüben.</p>
+                    </div>
+
+                    <div class="point-item">
+                        <h3>Trainer mit klarer Spielidee</h3>
+                        <p>So wichtig wie individuelle Fähigkeiten sind uns mannschaftliches Spielverständnis im
+                            Aufbauspiel wie in der Verteidigung.</p>
+                    </div>
+
+                    <div class="point-item">
+                        <h3>Professioneller Setup</h3>
+                        <p>Infrastruktur, Betreuer und Sponsoren schaffen den Rahmen, damit Du Dich auf das Wesentliche
+                            konzentrieren kannst: Deine Entwicklung.</p>
+                    </div>
+                </div>
+
+                <p class="outro-text">... und damit es für alle einfacher ist, bieten wir auch Fahrgemeinschaften an!
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SV Glehn Jahrgang 2014.</p>
+            <div style="margin-top: 1rem;">
+                <a href="index.html">Startseite</a>
+                <span style="margin: 0 1rem; color: var(--color-border-subtle);">|</span>
+                <a href="index.html#kontakt">Kontakt</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
