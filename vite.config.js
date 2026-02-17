@@ -10,6 +10,7 @@ export default defineConfig({
                 philosophie: resolve(__dirname, 'philosophie.html'),
                 einstellung: resolve(__dirname, 'einstellung.html'),
                 faehigkeiten: resolve(__dirname, 'faehigkeiten.html'),
+                warum: resolve(__dirname, 'warum-sv-glehn.html'),
             },
         },
     },
