@@ -256,13 +256,17 @@ nav {
 
 .hero-top-nav {
   margin-bottom: 3rem;
-  /* Further away from headline */
   font-family: var(--font-sans);
   font-size: 1.125rem;
-  /* Larger font */
   letter-spacing: 0.2em;
   font-weight: 700;
   color: var(--color-gold);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 685px;
+  /* Matches width of 'Wir brauchen Dich' */
+  max-width: 100%;
 }
 
 .hero-top-nav a {
@@ -278,12 +282,10 @@ nav {
 
 .hero-top-nav .separator {
   color: var(--color-gold);
-  /* Gold separator */
   font-weight: 300;
-  margin: 0 1.5rem;
-  /* More spacing around separator */
+  margin: 0;
+  /* Remove margin, let flex space-between handle it */
   font-size: 1.5rem;
-  /* Larger separator */
   vertical-align: middle;
 }
 
