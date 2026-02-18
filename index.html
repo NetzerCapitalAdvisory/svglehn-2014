@@ -198,7 +198,44 @@
       }
     });
 
-    console.log('SV Glehn Website Loaded (Inline)');
+    // Responsive Hero Alignment Logic
+    function alignHeroElements() {
+      const h1 = document.querySelector('h1');
+      const nav = document.querySelector('.hero-top-nav');
+      const cta = document.querySelector('.btn-cta');
+
+      if (h1 && nav) {
+        // Measure width of "Wir brauchen Dich" (First line of H1)
+        const range = document.createRange();
+        const highlight = h1.querySelector('.highlight');
+
+        // Ensure we have the text node and the span
+        if (h1.firstChild && highlight) {
+          range.setStart(h1.firstChild, 0); // Start of "Wir" text node
+          range.setEndAfter(highlight);     // End of "Dich" span
+          const rect = range.getBoundingClientRect();
+          const targetWidth = rect.width;
+
+          // Apply width to Nav
+          nav.style.width = `${targetWidth}px`;
+          // Ensure flex spacing
+          nav.style.justifyContent = 'space-between';
+
+          // Apply width to CTA
+          if (cta) {
+            cta.style.width = `${targetWidth}px`;
+          }
+        }
+      }
+    }
+
+    // Run alignment on load and resize
+    window.addEventListener('load', alignHeroElements);
+    window.addEventListener('resize', alignHeroElements);
+    // Initial run
+    alignHeroElements();
+
+    console.log('SV Glehn Website Loaded (Inline + Alignment)');
   </script>
 </body>
 
