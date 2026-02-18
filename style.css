@@ -312,8 +312,7 @@ nav {
 .hero p {
   font-size: 1.125rem;
   font-weight: 400;
-  max-width: 850px;
-  /* Increased to allow longer first line */
+  max-width: 650px;
   margin-bottom: 3rem;
   color: var(--color-text-light);
   line-height: 1.8;
