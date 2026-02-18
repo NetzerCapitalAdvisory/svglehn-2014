@@ -152,43 +152,53 @@ nav {
 }
 
 /* Hero CTA Button - PERMANENT BRIGHT GOLD (No Hover Change) */
+/* Hero CTA Button - Styled like Expertise Cards */
 .btn-cta {
   display: inline-block;
-  padding: 1rem 2.5rem;
-  background: #FFD700 !important;
-  /* Bright Glowing Gold ALWAYS */
-  color: #0B132B !important;
-  /* Deep Black Text ALWAYS */
-  font-family: var(--font-white);
-  font-weight: 800;
-  font-size: 0.875rem;
+  padding: 1.5rem 2.5rem;
+  background: var(--color-navy-lighter);
+  border: 1px solid var(--color-gold);
+  border-radius: 12px;
+  color: var(--color-gold);
+  font-family: var(--font-serif);
+  /* Matching 'Dich' style somewhat */
+  font-weight: 700;
+  font-size: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-decoration: none;
-  cursor: default;
-  /* Use default cursor to imply no interaction change, or pointer if it's a link */
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
-  /* It's a link, so pointer is better, even if style doesn't change */
   margin-top: 2rem;
-  border-radius: 4px;
-  border: none;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-  /* Permanent Glow Shadow */
-  transition: none !important;
-  /* KILL ALL ANIMATIONS */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Identical state for hover/focus/active - NO CHANGE ALLOWED */
-.btn-cta:hover,
-.btn-cta:focus,
-.btn-cta:active {
-  background: #FFD700 !important;
-  color: #0B132B !important;
-  transform: none !important;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.5) !important;
-  border: none !important;
-  outline: none !important;
+.btn-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, var(--color-gold-muted) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
+
+.btn-cta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+  border-color: var(--color-gold);
+  /* Ensure it stays gold */
+}
+
+.btn-cta:hover::before {
+  opacity: 1;
+}
+
+
 
 /* Detail Page Line Styles */
 .title-wrapper::before {
@@ -298,36 +308,7 @@ nav {
   line-height: 1.8;
 }
 
-/* Ghost CTA Button */
-.btn-cta {
-  display: inline-block;
-  padding: 1rem 2.5rem;
-  border: 2px solid var(--color-gold);
-  background: transparent;
-  color: var(--color-gold);
-  font-family: var(--font-white);
-  font-weight: 700;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  margin-top: 2rem;
-}
 
-.btn-cta:hover {
-  background: var(--color-gold);
-  color: var(--color-deep-navy);
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-}
-
-.btn-cta:hover {
-  background: var(--color-gold);
-  color: var(--color-deep-navy);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-}
 
 /* Section Spacing */
 section {
