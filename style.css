@@ -166,6 +166,12 @@ nav {
   font-weight: 700;
   font-size: 1.125rem;
   /* Slightly larger */
+  width: 685px;
+  /* Match width of Nav and Headline */
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  /* Center text inside the box */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-decoration: none;
