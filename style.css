@@ -156,14 +156,16 @@ nav {
 .btn-cta {
   display: inline-block;
   padding: 1.5rem 2.5rem;
-  background: var(--color-navy-lighter);
+  background: transparent;
+  /* Match website background exactly */
   border: 1px solid var(--color-gold);
   border-radius: 12px;
   color: var(--color-gold);
   font-family: var(--font-serif);
   /* Matching 'Dich' style somewhat */
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.125rem;
+  /* Slightly larger */
   text-transform: uppercase;
   letter-spacing: 0.1em;
   text-decoration: none;
