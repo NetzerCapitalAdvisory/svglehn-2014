@@ -164,8 +164,8 @@ nav {
   font-family: var(--font-serif);
   /* Matching 'Dich' style somewhat */
   font-weight: 700;
-  font-size: 1.125rem;
-  /* Slightly larger */
+  font-size: 1.25rem;
+  /* Larger font size */
   width: 685px;
   /* Match width of Nav and Headline */
   max-width: 100%;
