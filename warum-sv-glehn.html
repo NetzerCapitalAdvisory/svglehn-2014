@@ -72,7 +72,7 @@
            SCROLL ANIMATION TRACK & STICKY HERO
         ----------------------------------------*/
         .apple-scroll-container {
-            height: 220vh; /* just enough scroll for full animation, no black gap */
+            height: 250vh; /* Smooth scroll space for the zoom effect */
             position: relative;
             background: #000;
         }
@@ -98,13 +98,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            /* Desktop: cover fills the frame fully */
             object-fit: cover;
             z-index: 1;
             will-change: opacity;
             opacity: 1;
         }
-        /* On portrait mobile: use contain so full frame is visible */
+        
+        /* Orientation handling on mobile */
         @media (max-width: 480px) and (orientation: portrait) {
             .hero-video {
                 object-fit: contain;
@@ -130,10 +130,10 @@
             width: min(90vw, 600px);
             height: auto;
             opacity: 0;
-            transform: scale(2.5) translateY(20px);
+            transform: scale(8); /* Dramatic starting zoom */
             will-change: transform, opacity;
             pointer-events: none;
-            border-radius: 12px;
+            filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
         }
 
         .scroll-indicator {
@@ -159,11 +159,37 @@
             60% { transform: translateY(-7px) translateX(-50%); }
         }
 
+        #sound-hint {
+            position: absolute;
+            bottom: 6rem;
+            right: 2rem;
+            z-index: 102;
+            background: rgba(10, 25, 47, 0.8);
+            color: var(--color-gold);
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            padding: 0.75rem 1.25rem;
+            border-radius: 30px;
+            border: 1px solid var(--color-gold);
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        #sound-hint:hover {
+            background: var(--color-gold);
+            color: var(--color-deep-navy);
+            transform: scale(1.05);
+        }
+
         /* -------------------------------------
            GLASSMORPHISM ARGUMENTS (CONTENT)
         ----------------------------------------*/
         .arguments-section {
-            padding: 8rem 0 10rem;
+            padding: 10rem 0 12rem;
             background: var(--color-deep-navy);
             position: relative;
             z-index: 10;
@@ -172,12 +198,12 @@
         .section-headline {
             text-align: center;
             font-family: var(--font-serif);
-            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             color: var(--color-white);
-            margin-bottom: 5rem;
+            margin-bottom: 6rem;
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .section-headline.is-visible {
             opacity: 1;
@@ -187,8 +213,8 @@
         .glass-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 2.5rem;
-            max-width: 1200px;
+            gap: 3rem;
+            max-width: 1300px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -211,23 +237,15 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             border-left: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 3.5rem 2.5rem;
+            border-radius: 28px;
+            padding: 4rem 3rem;
             position: relative;
             overflow: hidden;
             opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(60px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
-        /* Apply staggering manually to nth children for a cascading entrance */
-        .glass-card:nth-child(1) { transition-delay: 0.1s; }
-        .glass-card:nth-child(2) { transition-delay: 0.2s; }
-        .glass-card:nth-child(3) { transition-delay: 0.3s; }
-        .glass-card:nth-child(4) { transition-delay: 0.4s; }
-        .glass-card:nth-child(5) { transition-delay: 0.5s; }
-        .glass-card:nth-child(6) { transition-delay: 0.6s; }
-
         .glass-card.is-visible {
             opacity: 1;
             transform: translateY(0);
@@ -248,44 +266,28 @@
 
         .glass-card:hover {
             background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(212, 175, 55, 0.3);
-            transform: translateY(-8px) scale(1.02) !important;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.4);
+            transform: translateY(-10px) !important;
+            box-shadow: 0 40px 80px rgba(0,0,0,0.5);
         }
 
         .glass-card:hover::before {
             opacity: 1;
         }
 
-        .glass-number {
-            font-family: var(--font-serif);
-            font-size: 8rem;
-            color: rgba(212, 175, 55, 0.25);
-            font-weight: 900;
-            line-height: 1;
-            position: absolute;
-            bottom: -1.5rem;
-            right: 1.5rem;
-            transition: color 0.5s ease;
-        }
-
-        .glass-card:hover .glass-number {
-            color: rgba(212, 175, 55, 0.55);
-        }
-
         .glass-card h3 {
             color: var(--color-gold);
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-            font-weight: 600;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
             position: relative;
             z-index: 2;
         }
 
         .glass-card p {
             color: #bbc7d4;
-            font-size: 1.125rem;
-            line-height: 1.7;
+            font-size: 1.15rem;
+            line-height: 1.8;
             margin: 0;
             position: relative;
             z-index: 2;
@@ -293,17 +295,17 @@
 
         .outro-container {
             max-width: 800px;
-            margin: 5rem auto 0;
+            margin: 6rem auto 0;
             padding: 0 2rem;
             text-align: center;
         }
         .outro-text {
             color: var(--color-white);
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             font-style: italic;
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.8s ease 0.4s;
+            transition: all 1s ease 0.5s;
         }
         .outro-text.is-visible {
             opacity: 1;
@@ -313,7 +315,6 @@
 </head>
 <body>
 
-    <!-- Header -> minimal state to not distract from video -->
     <header id="site-header">
         <div class="container">
             <nav>
@@ -327,67 +328,52 @@
 
     <a href="index.html" class="floating-back">← STARTSEITE</a>
 
-    <!-- APPLE-STYLE SCROLL ANIMATION WRAPPER -->
     <div class="apple-scroll-container" id="scroll-track">
         <div class="sticky-hero">
-            <!-- Fullscreen responsive background video - no muted so audio plays -->
-            <video class="hero-video" id="hero-video" src="/sv-glehn-video.mp4" playsinline autoplay loop></video>
+            <video class="hero-video" id="hero-video" playsinline autoplay loop></video>
             
-            <!-- Dimming mask overlay for better text contrast as we scroll -->
             <div class="hero-mask-overlay" id="hero-mask"></div>
             
-            <!-- 3D logo image from video frame, fades in on scroll -->
             <img class="hero-logo-img" id="hero-text" src="/sv-glehn-logo.jpg" alt="S.V. Glehn Jahrgang 2014">
 
-            <!-- Sound unmute hint -->
-            <div id="sound-hint" style="position:absolute;bottom:6rem;right:2rem;z-index:6;background:rgba(10,25,47,0.7);color:rgba(255,255,255,0.8);font-family:var(--font-sans);font-size:0.7rem;letter-spacing:0.1em;padding:0.6rem 1rem;border-radius:30px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;backdrop-filter:blur(10px);transition:all 0.3s ease;">
-                🔊 TON AN
-            </div>
+            <div id="sound-hint">🔊 TON EINSCHALTEN</div>
 
-            <!-- Scroll visual cue -->
             <div class="scroll-indicator" id="scroll-hint">
                 Scroll<br>↓
             </div>
         </div>
     </div>
 
-    <!-- MAIN ARGUMENTS CONTENT -->
     <section class="arguments-section">
         <h2 class="section-headline observe-me">6 starke Argumente</h2>
         
         <div class="glass-grid">
             <div class="glass-card observe-me">
-                
                 <h3>Hohe Trainingsqualität</h3>
                 <p>Du trainierst mit Spielern, die etwas erreichen wollen. Mit strukturiertem, zielorientiertem, aber abwechslungsreichem Training heben wir dein Niveau Woche für Woche.</p>
             </div>
 
             <div class="glass-card observe-me">
-                
                 <h3>Individuelle Entwicklung</h3>
                 <p>Ein Trainer-Spieler-Verhältnis, das individuelles Coaching, schnelle Korrekturen und messbaren Fortschritt garantiert.</p>
             </div>
 
             <div class="glass-card observe-me">
-                
                 <h3>Leistungsfördernde Intensität</h3>
                 <p>Wir bieten pro Woche 5 Einheiten (inkl. Spiel) an, um durch eine hohe Anzahl an Wiederholungen die Fähigkeiten gezielt einzuüben.</p>
             </div>
 
             <div class="glass-card observe-me">
-                
                 <h3>Trainer mit klarer Spielidee</h3>
                 <p>So wichtig wie individuelle Fähigkeiten sind uns mannschaftliches Spielverständnis im Aufbauspiel wie in der Verteidigung.</p>
             </div>
 
             <div class="glass-card observe-me">
-                
                 <h3>Starke Mannschaft</h3>
                 <p>Intensität, Teamgeist und Spaß am Fußball – bei uns zählt Leistung in der Gemeinschaft.</p>
             </div>
 
             <div class="glass-card observe-me">
-                
                 <h3>Professionelles Setup</h3>
                 <p>Infrastruktur, Betreuer und Sponsoren schaffen den Rahmen, damit Du Dich auf das Wesentliche konzentrieren kannst: Deine Entwicklung.</p>
             </div>
@@ -400,75 +386,88 @@
         </div>
     </section>
 
-    <!-- JS for Animation & Scroll Logic -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const track = document.getElementById('scroll-track');
             const video = document.getElementById('hero-video');
-            const text = document.getElementById('hero-text');
+            const logo = document.getElementById('hero-text');
             const mask = document.getElementById('hero-mask');
             const hint = document.getElementById('scroll-hint');
-            const header = document.getElementById('site-header');
-
             const soundHint = document.getElementById('sound-hint');
+            const header = document.getElementById('site-header');
 
             let isTicking = false;
 
-            // Sound button — browser blocks autoplay with audio.
-            // Start muted (for autoplay), user clicks to unmute.
-            // Button says "🔊 TON AN" initially = click to turn sound ON
-            video.muted = true;
-            soundHint.textContent = '🔊 TON AN';
+            // --- VIDEO HANDLING (RESPONSIVE) ---
+            function updateVideoSource() {
+                const isPortrait = window.innerHeight > window.innerWidth;
+                const targetSrc = isPortrait ? '/sv-glehn-portrait.mp4' : '/sv-glehn-landscape.mp4';
+                
+                if (video.getAttribute('src') !== targetSrc) {
+                    video.src = targetSrc;
+                    video.load();
+                    // Autoplay is fragile with audio, start muted
+                    video.muted = true;
+                    video.play().catch(e => console.log("Video play blocked", e));
+                    soundHint.textContent = '🔊 TON EINSCHALTEN';
+                }
+            }
+            
+            updateVideoSource();
+            window.addEventListener('resize', updateVideoSource);
+
+            // --- AUDIO HANDLING ---
             soundHint.addEventListener('click', () => {
                 video.muted = !video.muted;
-                // When muted=false (sound IS on), button says "🔇 TON AUS" (click to turn off)
-                // When muted=true (sound IS off), button says "🔊 TON AN" (click to turn on)
-                soundHint.textContent = video.muted ? '🔊 TON AN' : '🔇 TON AUS';
-                if (video.paused) video.play().catch(() => {});
+                soundHint.textContent = video.muted ? '🔊 TON EINSCHALTEN' : '🔇 TON AUSSCHALTEN';
+                if (video.paused) video.play().catch(e => console.log(e));
             });
 
-            // Scroll Logic
+            // --- SCROLL ANIMATION LOGIC ---
             const onScroll = () => {
                 const scrollY = window.scrollY;
-                
-                // Track geometry
                 const trackRect = track.getBoundingClientRect();
                 const scrolledPastTop = -trackRect.top;
                 const maxScrollableDist = track.offsetHeight - window.innerHeight;
                 
-                // Calculate animation progress from 0 to 1 inside the sticky track
                 let progress = 0;
                 if (scrolledPastTop > 0) {
                     progress = Math.min(scrolledPastTop / maxScrollableDist, 1);
                 }
 
-                // Apply animations based on progress pointer
+                // --- APPLE STYLE ZOOM: From 8x to 1x ---
+                const logoScale = Math.max(8 - (progress * 7), 1);
+                // Logo fades in strongly at start, then stays solid
+                const logoOpacity = Math.min(progress * 5, 1);
                 
-                // 1. No video scale — keep video at natural size so full frame is visible
-                // video scale intentionally removed
-                
-                // 2. Darken overlay mask (0 -> 0.9 opacity navy) over video as we scroll
-                const maskOpacity = progress * 0.9;
+                logo.style.transform = `scale(${logoScale})`;
+                logo.style.opacity = logoOpacity;
+
+                // --- VIDEO FADE AND MASK ---
+                // Darken mask (0 -> 1)
+                const maskOpacity = Math.min(progress * 1.5, 1);
                 mask.style.backgroundColor = `rgba(10, 25, 47, ${maskOpacity})`;
-
-                // 3. Zoom Logo Image In (Scale 2.5 -> 1) and Fade In (Opacity 0 -> 1)
-                // Let image reach opacity 1 at halfway point
-                const textOpacity = Math.min(progress * 2.5, 1); 
-                // Scale goes from 2.5 to 1 mapping linearly across progress
-                const textScale = Math.max(2.5 - (progress * 1.5), 1);
-                const textY = Math.max(20 - (progress * 20), 0);
                 
-                text.style.transform = `scale(${textScale}) translateY(${textY}px)`;
-                text.style.opacity = textOpacity;
+                // Gradually fade video away towards the end of scroll
+                const videoOpacity = 1 - Math.max((progress - 0.7) * 3.3, 0);
+                video.style.opacity = videoOpacity;
 
-                // 4. Hide scroll hint quickly
-                if (progress > 0.02) {
-                    hint.style.opacity = '0';
-                } else {
-                    hint.style.opacity = '1';
+                // --- AUDIO AUTO-MUTE ---
+                // Mute when user starts leaving the hero section
+                if (progress > 0.8 && !video.muted) {
+                    video.muted = true;
+                    soundHint.textContent = '🔊 TON EINSCHALTEN';
                 }
 
-                // 5. Header backdrop blur
+                // --- HEADER & UI ---
+                if (progress > 0.05) {
+                    hint.style.opacity = '0';
+                    soundHint.style.opacity = 1 - ((progress - 0.8) * 5); // Fade out button at end
+                } else {
+                    hint.style.opacity = '1';
+                    soundHint.style.opacity = '1';
+                }
+
                 if (scrollY > 50) {
                     header.classList.add('scrolled-header');
                 } else {
@@ -478,7 +477,6 @@
                 isTicking = false;
             };
 
-            // Optimization wrapper using requestAnimationFrame
             window.addEventListener('scroll', () => {
                 if (!isTicking) {
                     window.requestAnimationFrame(onScroll);
@@ -486,14 +484,12 @@
                 }
             }, { passive: true });
 
-            // Initial manual call
             onScroll();
 
-            // Intersection Observer for Glass Cards "Fade In Up" effect
-            // rootMargin 200px means cards become visible 200px BEFORE they enter the viewport
+            // --- INTERSECTION OBSERVER (CARDS) ---
             const observerOptions = {
                 root: null,
-                rootMargin: '200px 0px 0px 0px',
+                rootMargin: '150px 0px 0px 0px',
                 threshold: 0
             };
 
@@ -501,23 +497,22 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // lock visible state
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
 
-            const elementsToObserve = document.querySelectorAll('.observe-me');
-            elementsToObserve.forEach(el => observer.observe(el));
+            document.querySelectorAll('.observe-me').forEach(el => observer.observe(el));
             
-            // Fallback: if page is already scrolled past cards (e.g. back navigation), show them
+            // Fallback for immediate visibility
             setTimeout(() => {
-                elementsToObserve.forEach(el => {
+                document.querySelectorAll('.observe-me').forEach(el => {
                     const rect = el.getBoundingClientRect();
-                    if (rect.top < window.innerHeight + 300) {
+                    if (rect.top < window.innerHeight + 200) {
                         el.classList.add('is-visible');
                     }
                 });
-            }, 300);
+            }, 500);
         });
     </script>
 </body>
