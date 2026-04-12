@@ -1,46 +1,45 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Die 10 Fußball-Gebote - S.V. Glehn '14</title>
-    <meta name="description" content="Unsere 10 Fußball-Gebote: Die Grundlage für jedes Training und Spiel beim S.V. Glehn Jahrgang 2014.">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10 Gebote - SV Glehn 2014</title>
     <link rel="stylesheet" href="style.css">
-    
     <style>
+        body {
+            padding-top: 80px;
+        }
+
         .detail-page {
-            padding-top: 150px;
-            padding-bottom: var(--spacing-section);
-            background: linear-gradient(to bottom, rgba(11, 19, 43, 0.95), var(--color-deep-navy)), url('/images/soccer-pitch-bg.jpg') no-repeat center center;
-            background-size: cover;
-            background-attachment: fixed;
-            min-height: 100vh;
+            padding: 4rem 0 6rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
 
         .back-link {
             display: inline-block;
             color: var(--color-gold);
-            text-decoration: none;
             font-family: var(--font-sans);
             font-weight: 600;
-            letter-spacing: 0.1em;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            letter-spacing: 0.15em;
+            text-decoration: none;
+            margin-bottom: 4rem;
             transition: opacity 0.3s ease;
         }
 
         .back-link:hover {
-            opacity: 0.8;
+            opacity: 0.7;
         }
 
         .header-content {
-            margin-bottom: 5rem;
             position: relative;
+            margin-bottom: 5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
         }
 
         .title-wrapper {
@@ -61,91 +60,89 @@
 
         .detail-page h1 {
             font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(3rem, 6vw, 5rem);
             margin: 0;
             color: var(--color-white);
             line-height: 1.1;
         }
-        
-        .intro-text {
-            font-size: 1.25rem;
-            line-height: 1.8;
-            color: var(--color-text-light);
-            max-width: 800px;
-            margin-bottom: 4rem;
+
+        .big-number {
+            font-family: var(--font-serif);
+            font-size: 15rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.03);
+            line-height: 0.8;
+            position: absolute;
+            right: -2rem;
+            top: -3rem;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        /* Content Styling */
         .content-wrapper {
-            padding-left: 0;
-            margin-top: 0;
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
+            padding-left: 3rem;
+            margin-top: 2rem;
             position: relative;
             z-index: 2;
         }
-        
-        .gebote-section {
-            margin-bottom: 5rem;
-            position: relative;
-        }
-        
-        .section-title {
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            color: var(--color-white);
-            margin-bottom: 2rem;
-            display: inline-block;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
-            padding-bottom: 0.5rem;
-            padding-right: 2rem;
+
+        .detail-page p.intro-text {
+            font-size: 1.125rem;
+            line-height: 1.85;
+            margin-bottom: 1.75rem;
+            color: var(--color-text-light);
         }
 
-        .points-grid {
+        h2.section-title {
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            color: var(--color-white);
+            margin-top: 3rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .gebote-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            margin-top: 1rem;
-            padding-left: 2.5rem;
-            border-left: 1px solid rgba(212, 175, 55, 0.3);
+            gap: 2rem;
+            margin-top: 2rem;
+            margin-bottom: 3rem;
         }
 
         @media (min-width: 768px) {
-            .points-grid {
+            .gebote-grid {
                 grid-template-columns: 1fr 1fr;
             }
         }
 
-        .point-item {
-            position: relative;
+        .gebote-item {
+            background: var(--color-navy-lighter);
+            border: 1px solid var(--color-border-subtle);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
         }
 
-        .point-item h3 {
-            font-family: var(--font-sans);
-            font-size: 1.125rem;
-            color: var(--color-gold);
-            margin: 0 0 0.5rem 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .gebote-item:hover {
+            border-color: var(--color-gold);
+            transform: translateY(-4px);
         }
 
-        .point-number {
-            position: absolute;
-            top: -0.25rem;
-            left: -3.5rem;
+        .gebote-item h3 {
             font-family: var(--font-serif);
-            font-size: 2rem;
-            font-weight: 900;
-            color: rgba(212, 175, 55, 1);
-            line-height: 1;
-            pointer-events: none;
-            width: 3rem;
-            text-align: right;
+            font-size: 1.25rem;
+            margin: 0 0 1rem 0;
+            color: var(--color-gold);
+            line-height: 1.4;
         }
 
-        .point-item p {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: var(--color-text-light);
+        .gebote-item p {
             margin: 0;
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+            line-height: 1.6;
         }
     </style>
 </head>
@@ -154,7 +151,8 @@
     <header>
         <div class="container">
             <nav>
-                <div class="brand"><a href="index.html" style="color: var(--color-text-light); text-decoration: none;">S.V. Glehn '14</a></div>
+                <div class="brand"><a href="index.html"
+                        style="color: var(--color-text-light); text-decoration: none;">S.V. Glehn '14</a></div>
                 <ul class="nav-links">
                     <li><a href="index.html#probetraining">Probetraining</a></li>
                     <li><a href="index.html#kontakt">Kontakt</a></li>
@@ -169,88 +167,68 @@
 
             <div class="header-content">
                 <div class="title-wrapper">
-                    <h1>Die 10 Fußball-Gebote</h1>
+                    <h1>10 Gebote</h1>
                 </div>
+                <div class="big-number">04</div>
             </div>
-            
-            <p class="intro-text">
-                Neben der richtigen Philosophie, Einstellung und Fähigkeiten bilden “10 Gebote” das Fundament für jedes Training und jedes Spiel.<br>
-                Immer, wenn der Ball in der Nähe ist, befolgen wir diese 10 Regeln ganz automatisch, d.h. ohne sie jedesmal neu erläutern zu müssen.
-            </p>
 
             <div class="content-wrapper">
-                
-                <!-- Sektion I -->
-                <div class="gebote-section">
-                    <h2 class="section-title">I. Bewegung</h2>
-                    <div class="points-grid">
-                        <div class="point-item">
-                            <div class="point-number">1.</div>
-                            <h3>Pass & Move</h3>
-                            <p>Nach jedem Pass startest du sofort neu – lauf dich frei und schaff eine neue Option.</p>
-                        </div>
-                        <div class="point-item">
-                            <div class="point-number">2.</div>
-                            <h3>Das Magische Dreieck</h3>
-                            <p>Wir bewegen uns ständig so, dass wir überall auf dem Platz Dreiecke bilden.</p>
-                        </div>
-                        <div class="point-item">
-                            <div class="point-number">3.</div>
-                            <h3>Anspielstation sein</h3>
-                            <p>Wer den Ball gerade nicht hat, arbeitet am härtesten. Mach ein aktives Angebot!</p>
-                        </div>
-                        <div class="point-item">
-                            <div class="point-number">4.</div>
-                            <h3>Entgegengehen</h3>
-                            <p>Wir warten nicht auf den Ball, sondern gehen ihm entgegen, um dynamisch zu spielen und dem Gegner möglichst immer zuvorzukommen.</p>
-                        </div>
-                        <div class="point-item">
-                            <div class="point-number">5.</div>
-                            <h3>Sichtkontakt halten</h3>
-                            <p>Wenn du den Ball nicht siehst, sieht der Ball dich auch nicht. Such dir sofort einen neuen Korridor.</p>
-                        </div>
+                <p class="intro-text">
+                    Neben der richtigen Philosophie, Einstellung und Fähigkeiten bilden “10 Gebote” das Fundament für jedes Training und jedes Spiel.<br>
+                    Immer, wenn der Ball in der Nähe ist, befolgen wir diese 10 Regeln ganz automatisch, d.h. ohne sie jedesmal neu erläutern zu müssen.
+                </p>
+
+                <h2 class="section-title">I. Bewegung</h2>
+                <div class="gebote-grid">
+                    <div class="gebote-item">
+                        <h3>1. Pass & Move</h3>
+                        <p>Nach jedem Pass startest du sofort neu – lauf dich frei und schaff eine neue Option.</p>
+                    </div>
+                    <div class="gebote-item">
+                        <h3>2. Das Magische Dreieck</h3>
+                        <p>Wir bewegen uns ständig so, dass wir überall auf dem Platz Dreiecke bilden.</p>
+                    </div>
+                    <div class="gebote-item">
+                        <h3>3. Anspielstation sein</h3>
+                        <p>Wer den Ball gerade nicht hat, arbeitet am härtesten. Mach ein aktives Angebot!</p>
+                    </div>
+                    <div class="gebote-item">
+                        <h3>4. Entgegengehen</h3>
+                        <p>Wir warten nicht auf den Ball, sondern gehen ihm entgegen, um dynamisch zu spielen und dem Gegner möglichst immer zuvorzukommen.</p>
+                    </div>
+                    <div class="gebote-item">
+                        <h3>5. Sichtkontakt halten</h3>
+                        <p>Wenn du den Ball nicht siehst, sieht der Ball dich auch nicht. Such dir sofort einen neuen Korridor.</p>
                     </div>
                 </div>
 
-                <!-- Sektion II -->
-                <div class="gebote-section">
-                    <h2 class="section-title">II. Spielintelligenz</h2>
-                    <div class="points-grid">
-                        <div class="point-item">
-                            <div class="point-number">6.</div>
-                            <h3>Flach spielen</h3>
-                            <p>Wir halten den Ball am Boden – das macht unser Spiel schnell und präzise.</p>
-                        </div>
-                        <div class="point-item">
-                            <div class="point-number">7.</div>
-                            <h3>Flügelspiel vor Zentrum</h3>
-                            <p>Wir spielen den Ball bevorzugt über die Außenbahnen statt durch die risikoreiche Mitte.</p>
-                        </div>
-                        <div class="point-item">
-                            <div class="point-number">8.</div>
-                            <h3>Kopf hoch</h3>
-                            <p>Vor jedem Pass nimmst du kurz den Kopf hoch, um die beste Entscheidung zu treffen.</p>
-                        </div>
+                <h2 class="section-title">II. Spielintelligenz</h2>
+                <div class="gebote-grid">
+                    <div class="gebote-item">
+                        <h3>6. Flach spielen</h3>
+                        <p>Wir halten den Ball am Boden – das macht unser Spiel schnell und präzise.</p>
+                    </div>
+                    <div class="gebote-item">
+                        <h3>7. Flügelspiel vor Zentrum</h3>
+                        <p>Wir spielen den Ball bevorzugt über die Außenbahnen statt durch die risikoreiche Mitte.</p>
+                    </div>
+                    <div class="gebote-item">
+                        <h3>8. Kopf hoch</h3>
+                        <p>Vor jedem Pass nimmst du kurz den Kopf hoch, um die beste Entscheidung zu treffen.</p>
                     </div>
                 </div>
 
-                <!-- Sektion III -->
-                <div class="gebote-section">
-                    <h2 class="section-title">III. Fokus</h2>
-                    <div class="points-grid">
-                        <div class="point-item">
-                            <div class="point-number">9.</div>
-                            <h3>Körper hinter den Ball</h3>
-                            <p>Beim Stoppen – besonders bei hohen Bällen – ist der Körper immer die Sicherung hinter dem Ball.</p>
-                        </div>
-                        <div class="point-item">
-                            <div class="point-number">10.</div>
-                            <h3>Fokus Total</h3>
-                            <p>Deine Augen sind zu jedem Zeitpunkt fest auf dem Ball.</p>
-                        </div>
+                <h2 class="section-title">III. Fokus</h2>
+                <div class="gebote-grid">
+                    <div class="gebote-item">
+                        <h3>9. Körper hinter den Ball</h3>
+                        <p>Beim Stoppen – besonders bei hohen Bällen – ist der Körper immer die Sicherung hinter dem Ball.</p>
+                    </div>
+                    <div class="gebote-item">
+                        <h3>10. Fokus Total</h3>
+                        <p>Deine Augen sind zu jedem Zeitpunkt fest auf dem Ball.</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </main>
