@@ -404,8 +404,10 @@
                 const targetSrc = isPortrait ? '/sv-glehn-portrait.mp4' : '/sv-glehn-landscape.mp4';
                 
                 if (video.getAttribute('src') !== targetSrc) {
+                    const time = video.currentTime;
                     video.src = targetSrc;
                     video.load();
+                    video.currentTime = time;
                     // Autoplay is fragile with audio, start muted
                     video.muted = true;
                     video.play().catch(e => console.log("Video play blocked", e));
@@ -417,7 +419,9 @@
             window.addEventListener('resize', updateVideoSource);
 
             // --- AUDIO HANDLING ---
+            let hasInteracted = false;
             soundHint.addEventListener('click', () => {
+                hasInteracted = true;
                 video.muted = !video.muted;
                 soundHint.textContent = video.muted ? '🔊 TON EINSCHALTEN' : '🔇 TON AUSSCHALTEN';
                 if (video.paused) video.play().catch(e => console.log(e));
@@ -433,6 +437,18 @@
                 let progress = 0;
                 if (scrolledPastTop > 0) {
                     progress = Math.min(scrolledPastTop / maxScrollableDist, 1);
+                }
+
+                // Try unmuting on first scroll if not interacted yet
+                if (progress > 0.05 && !hasInteracted && video.muted) {
+                    video.muted = false;
+                    // Check if browser allowed unmuting
+                    if (video.muted) {
+                        // Still muted, stay on "TON EINSCHALTEN"
+                    } else {
+                        hasInteracted = true;
+                        soundHint.textContent = '🔇 TON AUSSCHALTEN';
+                    }
                 }
 
                 // --- APPLE STYLE ZOOM: From 8x to 1x ---
