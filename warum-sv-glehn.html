@@ -1,25 +1,39 @@
 <!doctype html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Warum S.V. Glehn? - SV Glehn 2014</title>
+    <title>Warum S.V. Glehn 2014?</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            padding-top: 80px;
+        /* Overrides for Apple-Style Page */
+        html, body {
+            margin: 0;
+            padding: 0;
+            background: var(--color-deep-navy);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .detail-page {
-            padding: 4rem 0 6rem;
-            max-width: 900px;
-            margin: 0 auto;
+        /* Prevent standard header shifting */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+        header.scrolled-header {
+            background: var(--color-deep-navy);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
         }
 
-        /* Back Link */
-        .back-link {
-            display: inline-block;
+        .floating-back {
+            position: fixed;
+            top: 6rem;
+            left: 2rem;
             color: var(--color-gold);
             font-family: var(--font-sans);
             font-weight: 600;
@@ -27,221 +41,463 @@
             text-transform: uppercase;
             letter-spacing: 0.15em;
             text-decoration: none;
-            margin-bottom: 4rem;
-            transition: opacity 0.3s ease;
+            z-index: 101;
+            background: rgba(10, 25, 47, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 0.75rem 1.25rem;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .floating-back:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
         }
 
-        .back-link:hover {
-            opacity: 0.7;
+        @media (max-width: 768px) {
+            .floating-back {
+                top: auto;
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .floating-back:hover {
+                transform: translateX(-50%) translateY(-2px);
+            }
         }
 
-        /* Header Layout */
-        .header-content {
+        /* -------------------------------------
+           SCROLL ANIMATION TRACK & STICKY HERO
+        ----------------------------------------*/
+        .apple-scroll-container {
+            height: 350vh; /* gives us 2.5 screens of scrolling for the animation */
             position: relative;
-            margin-bottom: 1.5rem;
+            background: #000; /* fall behind video */
+        }
+
+        .sticky-hero {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            justify-content: center;
+            align-items: center;
+            background: #000;
         }
 
-        .title-wrapper {
-            position: relative;
-            padding-top: 2rem;
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+            transform-origin: center center;
+            will-change: transform, opacity;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .hero-mask-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 2;
+            background: rgba(10, 25, 47, 0); /* will fade to 1 on scroll */
+            will-change: background-color;
+            pointer-events: none;
         }
 
-        .title-wrapper::before {
+        .hero-logo-text {
+            position: relative;
+            z-index: 3;
+            font-family: var(--font-serif);
+            font-size: clamp(3.5rem, 15vw, 12rem);
+            color: var(--color-gold);
+            font-weight: 900;
+            text-align: center;
+            line-height: 1.1;
+            opacity: 0; /* invisible at start */
+            transform: scale(3) translateY(20px); /* starts huge */
+            will-change: transform, opacity;
+            pointer-events: none;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            letter-spacing: -0.02em;
+        }
+        .hero-logo-text span {
+            display: block;
+            font-size: 0.4em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-family: var(--font-sans);
+            color: var(--color-white);
+            font-weight: 400;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-family: var(--font-sans);
+            font-size: 0.75rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            animation: bounce 2.5s infinite;
+            will-change: opacity, transform;
+            transition: opacity 0.5s ease;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-15px) translateX(-50%); }
+            60% { transform: translateY(-7px) translateX(-50%); }
+        }
+
+        /* -------------------------------------
+           GLASSMORPHISM ARGUMENTS (CONTENT)
+        ----------------------------------------*/
+        .arguments-section {
+            padding: 8rem 0 10rem;
+            background: var(--color-deep-navy);
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-headline {
+            text-align: center;
+            font-family: var(--font-serif);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--color-white);
+            margin-bottom: 5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+        .section-headline.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .glass-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (min-width: 1024px) {
+            .glass-grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Apply staggering manually to nth children for a cascading entrance */
+        .glass-card:nth-child(1) { transition-delay: 0.1s; }
+        .glass-card:nth-child(2) { transition-delay: 0.2s; }
+        .glass-card:nth-child(3) { transition-delay: 0.3s; }
+        .glass-card:nth-child(4) { transition-delay: 0.4s; }
+        .glass-card:nth-child(5) { transition-delay: 0.5s; }
+        .glass-card:nth-child(6) { transition-delay: 0.6s; }
+
+        .glass-card.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--color-gold);
-        }
-
-        .detail-page h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(3rem, 6vw, 5rem);
-            margin: 0;
-            color: var(--color-white);
-            line-height: 1.1;
-        }
-
-        .big-number {
-            font-family: var(--font-serif);
-            font-size: 15rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.03);
-            line-height: 0.8;
-            position: absolute;
-            right: -2rem;
-            top: -3rem;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.1), transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
             pointer-events: none;
-            z-index: 1;
         }
 
-        /* Content Styling */
-        .content-wrapper {
-            padding-left: 3rem;
-            padding-bottom: 0;
-            margin-top: 0;
+        .glass-card:hover {
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(212, 175, 55, 0.3);
+            transform: translateY(-8px) scale(1.02) !important;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4), 0 0 40px rgba(212, 175, 55, 0.05);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-number {
+            font-family: var(--font-serif);
+            font-size: 5rem;
+            color: rgba(212, 175, 55, 0.15);
+            font-weight: 900;
+            line-height: 1;
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            transition: color 0.5s ease;
+        }
+
+        .glass-card:hover .glass-number {
+            color: rgba(212, 175, 55, 0.4);
+        }
+
+        .glass-card h3 {
+            color: var(--color-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+            font-weight: 600;
             position: relative;
             z-index: 2;
         }
 
-        .content-wrapper::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 3rem;
-            bottom: 0;
-            width: 1px;
-            background: rgba(212, 175, 55, 0.3);
-        }
-
-        .points-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            margin-top: -0.5rem;
-        }
-
-        @media (min-width: 768px) {
-            .points-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .point-item {
-            position: relative;
-        }
-
-        .point-item h3 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            color: var(--color-gold);
-            margin: 0 0 0.5rem 0;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .point-number {
-            position: absolute;
-            top: -0.5rem;
-            left: -0.5rem;
-            font-family: var(--font-serif);
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: rgba(212, 175, 55, 1);
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        .point-item p {
+        .glass-card p {
+            color: #bbc7d4;
             font-size: 1.125rem;
-            line-height: 1.6;
-            color: var(--color-text-light);
+            line-height: 1.7;
             margin: 0;
+            position: relative;
+            z-index: 2;
         }
 
+        .outro-container {
+            max-width: 800px;
+            margin: 5rem auto 0;
+            padding: 0 2rem;
+            text-align: center;
+        }
         .outro-text {
-            margin-top: 2rem;
-            padding-bottom: 0;
-            font-size: 1.25rem;
             color: var(--color-white);
+            font-size: 1.25rem;
             font-style: italic;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease 0.4s;
+        }
+        .outro-text.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-
 <body>
-    <header>
+
+    <!-- Header -> minimal state to not distract from video -->
+    <header id="site-header">
         <div class="container">
             <nav>
-                <div class="brand"><a href="index.html"
-                        style="color: var(--color-text-light); text-decoration: none;">S.V. Glehn 2014</a></div>
+                <div class="brand"><a href="index.html" style="color: var(--color-white); text-decoration: none; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">S.V. Glehn 2014</a></div>
                 <ul class="nav-links">
-                    <li><a href="index.html#probetraining">Probetraining</a></li>
-                    <li><a href="index.html#kontakt">Kontakt</a></li>
+                    <li><a href="index.html#probetraining" style="color: var(--color-gold); font-weight: 700; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">PROBETRAINING</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main class="detail-page">
-        <div class="container">
-            <a href="index.html" class="back-link">← ZURÜCK</a>
+    <a href="index.html" class="floating-back">← STARTSEITE</a>
 
-            <div class="header-content">
-                <div class="title-wrapper">
-                    <h1>Warum S.V. Glehn 2014?</h1>
-                </div>
+    <!-- APPLE-STYLE SCROLL ANIMATION WRAPPER -->
+    <div class="apple-scroll-container" id="scroll-track">
+        <div class="sticky-hero">
+            <!-- Fullscreen responsive background video (muted is required for autoplay) -->
+            <video class="hero-video" id="hero-video" src="/sv-glehn-video.mp4" muted playsinline autoplay loop></video>
+            
+            <!-- Dimming mask overlay for better text contrast as we scroll -->
+            <div class="hero-mask-overlay" id="hero-mask"></div>
+            
+            <!-- Fallback elegant typography fading in (simulating the EPS logo) -->
+            <div class="hero-logo-text" id="hero-text">
+                SV GLEHN
+                <span>Jahrgang 2014</span>
             </div>
 
-            <div class="content-wrapper">
-                <div class="points-grid">
-                    <div class="point-item">
-                        <div class="point-number">1</div>
-                        <h3>Hohe Trainingsqualität</h3>
-                        <p>Du trainierst mit Spielern, die etwas erreichen wollen. Mit strukturiertem, zielorientiertem,
-                            aber abwechslungsreichem Training heben wir dein Niveau Woche für Woche.</p>
-                    </div>
-
-                    <div class="point-item">
-                        <div class="point-number">2</div>
-                        <h3>Individuelle Entwicklung</h3>
-                        <p>Ein Trainer-Spieler-Verhältnis, das individuelles Coaching, schnelle Korrekturen und
-                            messbaren Fortschritt garantiert.</p>
-                    </div>
-
-                    <div class="point-item">
-                        <div class="point-number">3</div>
-                        <h3>Leistungsfördernde Intensität</h3>
-                        <p>Wir bieten pro Woche 5 Einheiten (inkl. Spiel) an, um durch eine hohe Anzahl an
-                            Wiederholungen die Fähigkeiten gezielt einzuüben.</p>
-                    </div>
-
-                    <div class="point-item">
-                        <div class="point-number">4</div>
-                        <h3>Trainer mit klarer Spielidee</h3>
-                        <p>So wichtig wie individuelle Fähigkeiten sind uns mannschaftliches Spielverständnis im
-                            Aufbauspiel wie in der Verteidigung.</p>
-                    </div>
-
-                    <div class="point-item">
-                        <div class="point-number">5</div>
-                        <h3>Starke Mannschaft</h3>
-                        <p>Intensität, Teamgeist und Spaß am Fußball – bei uns zählt Leistung in der Gemeinschaft.</p>
-                    </div>
-
-                    <div class="point-item">
-                        <div class="point-number">6</div>
-                        <h3>Professioneller Setup</h3>
-                        <p>Infrastruktur, Betreuer und Sponsoren schaffen den Rahmen, damit Du Dich auf das Wesentliche
-                            konzentrieren kannst: Deine Entwicklung.</p>
-                    </div>
-                </div>
-                <p class="outro-text" style="padding-left: 0; margin-top: 2rem;">... und damit es für alle einfacher
-                    ist,
-                    bieten wir auch Fahrgemeinschaften an!
-                </p>
+            <!-- Scroll visual cue -->
+            <div class="scroll-indicator" id="scroll-hint">
+                Scroll<br>↓
             </div>
         </div>
-    </main>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; S.V. Glehn Jahrgang 2014</p>
-            <div style="margin-top: 1rem;">
-                <a href="index.html">Startseite</a>
-                <span style="margin: 0 1rem; color: var(--color-border-subtle);">|</span>
-                <a href="index.html#kontakt">Kontakt</a>
+    <!-- MAIN ARGUMENTS CONTENT -->
+    <section class="arguments-section">
+        <h2 class="section-headline observe-me">6 starke Argumente</h2>
+        
+        <div class="glass-grid">
+            <div class="glass-card observe-me">
+                <div class="glass-number">1</div>
+                <h3>Hohe Trainingsqualität</h3>
+                <p>Du trainierst mit Spielern, die etwas erreichen wollen. Mit strukturiertem, zielorientiertem, aber abwechslungsreichem Training heben wir dein Niveau Woche für Woche.</p>
+            </div>
+
+            <div class="glass-card observe-me">
+                <div class="glass-number">2</div>
+                <h3>Individuelle Entwicklung</h3>
+                <p>Ein Trainer-Spieler-Verhältnis, das individuelles Coaching, schnelle Korrekturen und messbaren Fortschritt garantiert.</p>
+            </div>
+
+            <div class="glass-card observe-me">
+                <div class="glass-number">3</div>
+                <h3>Leistungsfördernde Intensität</h3>
+                <p>Wir bieten pro Woche 5 Einheiten (inkl. Spiel) an, um durch eine hohe Anzahl an Wiederholungen die Fähigkeiten gezielt einzuüben.</p>
+            </div>
+
+            <div class="glass-card observe-me">
+                <div class="glass-number">4</div>
+                <h3>Trainer mit klarer Spielidee</h3>
+                <p>So wichtig wie individuelle Fähigkeiten sind uns mannschaftliches Spielverständnis im Aufbauspiel wie in der Verteidigung.</p>
+            </div>
+
+            <div class="glass-card observe-me">
+                <div class="glass-number">5</div>
+                <h3>Starke Mannschaft</h3>
+                <p>Intensität, Teamgeist und Spaß am Fußball – bei uns zählt Leistung in der Gemeinschaft.</p>
+            </div>
+
+            <div class="glass-card observe-me">
+                <div class="glass-number">6</div>
+                <h3>Professionelles Setup</h3>
+                <p>Infrastruktur, Betreuer und Sponsoren schaffen den Rahmen, damit Du Dich auf das Wesentliche konzentrieren kannst: Deine Entwicklung.</p>
             </div>
         </div>
-    </footer>
 
-    <script src="main.js"></script>
+        <div class="outro-container">
+            <p class="outro-text observe-me">
+                ... und damit es für alle einfacher ist, bieten wir auch Fahrgemeinschaften an!
+            </p>
+        </div>
+    </section>
+
+    <!-- JS for Animation & Scroll Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const track = document.getElementById('scroll-track');
+            const video = document.getElementById('hero-video');
+            const text = document.getElementById('hero-text');
+            const mask = document.getElementById('hero-mask');
+            const hint = document.getElementById('scroll-hint');
+            const header = document.getElementById('site-header');
+
+            let isTicking = false;
+
+            // Scroll Logic
+            const onScroll = () => {
+                const scrollY = window.scrollY;
+                
+                // Track geometry
+                const trackRect = track.getBoundingClientRect();
+                const scrolledPastTop = -trackRect.top;
+                const maxScrollableDist = track.offsetHeight - window.innerHeight;
+                
+                // Calculate animation progress from 0 to 1 inside the sticky track
+                let progress = 0;
+                if (scrolledPastTop > 0) {
+                    progress = Math.min(scrolledPastTop / maxScrollableDist, 1);
+                }
+
+                // Apply animations based on progress pointer
+                
+                // 1. Zoom video slightly Out (1 -> ~0.8)
+                const videoScale = 1 - (progress * 0.2);
+                video.style.transform = `scale(${videoScale})`;
+                
+                // 2. Darken overlay mask (0 -> 0.8 opacity navy) over video
+                const maskOpacity = progress * 0.9;
+                mask.style.backgroundColor = `rgba(10, 25, 47, ${maskOpacity})`;
+
+                // 3. Zoom Logo Text In (Scale 3 -> 1) and Fade In (Opacity 0 -> 1)
+                // Let text reach opacity 1 at halfway point
+                const textOpacity = Math.min(progress * 2.5, 1); 
+                // Scale goes from 3 to 1 mapping linearly across progress
+                const textScale = Math.max(3 - (progress * 2), 1);
+                const textY = Math.max(20 - (progress * 20), 0);
+                
+                text.style.transform = `scale(${textScale}) translateY(${textY}px)`;
+                text.style.opacity = textOpacity;
+
+                // 4. Hide scroll hint quickly
+                if (progress > 0.02) {
+                    hint.style.opacity = '0';
+                } else {
+                    hint.style.opacity = '1';
+                }
+
+                // 5. Header backdrop blur
+                if (scrollY > 50) {
+                    header.classList.add('scrolled-header');
+                } else {
+                    header.classList.remove('scrolled-header');
+                }
+
+                isTicking = false;
+            };
+
+            // Optimization wrapper using requestAnimationFrame
+            window.addEventListener('scroll', () => {
+                if (!isTicking) {
+                    window.requestAnimationFrame(onScroll);
+                    isTicking = true;
+                }
+            }, { passive: true });
+
+            // Initial manual call
+            onScroll();
+
+            // Intersection Observer for Glass Cards "Fade In Up" effect
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px 0px -100px 0px', // trigger slightly before entering viewport fully
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Optional: unobserve once visible (stops fading out on reverse scroll)
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToObserve = document.querySelectorAll('.observe-me');
+            elementsToObserve.forEach(el => observer.observe(el));
+        });
+    </script>
 </body>
-
 </html>
