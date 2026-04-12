@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Die 10 Fußball-Gebote - S.V. Glehn '14</title>
+    <meta name="description" content="Unsere 10 Fußball-Gebote: Die Grundlage für jedes Training und Spiel beim S.V. Glehn Jahrgang 2014.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        .detail-page {
+            padding-top: 150px;
+            padding-bottom: var(--spacing-section);
+            background: linear-gradient(to bottom, rgba(11, 19, 43, 0.95), var(--color-deep-navy)), url('/images/soccer-pitch-bg.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--color-gold);
+            text-decoration: none;
+            font-family: var(--font-sans);
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            transition: opacity 0.3s ease;
+        }
+
+        .back-link:hover {
+            opacity: 0.8;
+        }
+
+        .header-content {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+
+        .title-wrapper {
+            position: relative;
+            padding-top: 2rem;
+            z-index: 2;
+        }
+
+        .title-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--color-gold);
+        }
+
+        .detail-page h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            margin: 0;
+            color: var(--color-white);
+            line-height: 1.1;
+        }
+        
+        .intro-text {
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: var(--color-text-light);
+            max-width: 800px;
+            margin-bottom: 4rem;
+        }
+
+        /* Content Styling */
+        .content-wrapper {
+            padding-left: 0;
+            margin-top: 0;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .gebote-section {
+            margin-bottom: 5rem;
+            position: relative;
+        }
+        
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            color: var(--color-white);
+            margin-bottom: 2rem;
+            display: inline-block;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.5);
+            padding-bottom: 0.5rem;
+            padding-right: 2rem;
+        }
+
+        .points-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2.5rem;
+            margin-top: 1rem;
+            padding-left: 2.5rem;
+            border-left: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        @media (min-width: 768px) {
+            .points-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .point-item {
+            position: relative;
+        }
+
+        .point-item h3 {
+            font-family: var(--font-sans);
+            font-size: 1.125rem;
+            color: var(--color-gold);
+            margin: 0 0 0.5rem 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .point-number {
+            position: absolute;
+            top: -0.25rem;
+            left: -3.5rem;
+            font-family: var(--font-serif);
+            font-size: 2rem;
+            font-weight: 900;
+            color: rgba(212, 175, 55, 1);
+            line-height: 1;
+            pointer-events: none;
+            width: 3rem;
+            text-align: right;
+        }
+
+        .point-item p {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--color-text-light);
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="brand"><a href="index.html" style="color: var(--color-text-light); text-decoration: none;">S.V. Glehn '14</a></div>
+                <ul class="nav-links">
+                    <li><a href="index.html#probetraining">Probetraining</a></li>
+                    <li><a href="index.html#kontakt">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="detail-page">
+        <div class="container">
+            <a href="index.html" class="back-link">← ZURÜCK</a>
+
+            <div class="header-content">
+                <div class="title-wrapper">
+                    <h1>Die 10 Fußball-Gebote</h1>
+                </div>
+            </div>
+            
+            <p class="intro-text">
+                Neben der richtigen Einstellung (Konzentration, Laufbereitschaft, Siegeswille) und den 30 technischen Fähigkeiten bilden die folgenden “zehn Gebote” das Fundament für jedes Training und jedes Spiel. Immer, wenn der Ball in der Nähe ist, befolgen wir diese 10 Regeln ganz automatisch, also ohne sie jedesmal neu erläutern zu müssen:
+            </p>
+
+            <div class="content-wrapper">
+                
+                <!-- Sektion I -->
+                <div class="gebote-section">
+                    <h2 class="section-title">I. Bewegung</h2>
+                    <div class="points-grid">
+                        <div class="point-item">
+                            <div class="point-number">1.</div>
+                            <h3>Pass & Move</h3>
+                            <p>Nach jedem Pass startest du sofort neu – lauf dich frei und schaff eine neue Option.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-number">2.</div>
+                            <h3>Das Magische Dreieck</h3>
+                            <p>Wir bewegen uns ständig so, dass wir überall auf dem Platz Dreiecke bilden.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-number">3.</div>
+                            <h3>Anspielstation sein</h3>
+                            <p>Wer den Ball gerade nicht hat, arbeitet am härtesten. Mach ein aktives Angebot!</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-number">4.</div>
+                            <h3>Entgegengehen</h3>
+                            <p>Wir warten nicht auf den Ball, sondern gehen ihm entgegen, um dynamisch zu spielen und dem Gegner möglichst immer zuvorzukommen.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-number">5.</div>
+                            <h3>Sichtkontakt halten</h3>
+                            <p>Wenn du den Ball nicht siehst, sieht der Ball dich auch nicht. Such dir sofort einen neuen Korridor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sektion II -->
+                <div class="gebote-section">
+                    <h2 class="section-title">II. Spielintelligenz</h2>
+                    <div class="points-grid">
+                        <div class="point-item">
+                            <div class="point-number">6.</div>
+                            <h3>Flach spielen</h3>
+                            <p>Wir halten den Ball am Boden – das macht unser Spiel schnell und präzise.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-number">7.</div>
+                            <h3>Flügelspiel vor Zentrum</h3>
+                            <p>Wir spielen den Ball bevorzugt über die Außenbahnen statt durch die risikoreiche Mitte.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-number">8.</div>
+                            <h3>Kopf hoch</h3>
+                            <p>Vor jedem Pass nimmst du kurz den Kopf hoch, um die beste Entscheidung zu treffen.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sektion III -->
+                <div class="gebote-section">
+                    <h2 class="section-title">III. Fokus</h2>
+                    <div class="points-grid">
+                        <div class="point-item">
+                            <div class="point-number">9.</div>
+                            <h3>Körper hinter den Ball</h3>
+                            <p>Beim Stoppen – besonders bei hohen Bällen – ist der Körper immer die Sicherung hinter dem Ball.</p>
+                        </div>
+                        <div class="point-item">
+                            <div class="point-number">10.</div>
+                            <h3>Fokus Total</h3>
+                            <p>Deine Augen sind zu jedem Zeitpunkt fest auf dem Ball.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; S.V. Glehn Jahrgang 2014</p>
+            <div style="margin-top: 1rem;">
+                <a href="index.html">Startseite</a>
+                <span style="margin: 0 1rem; color: var(--color-border-subtle);">|</span>
+                <a href="index.html#kontakt">Kontakt</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
