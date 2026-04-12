@@ -321,15 +321,16 @@
             // --- VIDEO HANDLING (RESPONSIVE) ---
             function updateVideoSource() {
                 const isPortrait = window.innerHeight > window.innerWidth;
-                const targetSrc = isPortrait ? 'public/sv-glehn-portrait.mp4' : 'public/sv-glehn-landscape.mp4';
+                // Move from public/ to root for better server compatibility
+                const targetSrc = isPortrait ? 'sv-glehn-portrait.mp4' : 'sv-glehn-landscape.mp4';
                 
                 if (video.getAttribute('src') !== targetSrc) {
                     const time = video.currentTime;
+                    video.muted = true; // Stay muted for autoplay reliability
                     video.src = targetSrc;
                     video.load();
                     video.currentTime = time;
-                    video.muted = true;
-                    video.play().catch(e => console.log(e));
+                    video.play().catch(e => console.log("Play error:", e));
                     soundHint.textContent = '🔊 TON EINSCHALTEN';
                 }
             }
