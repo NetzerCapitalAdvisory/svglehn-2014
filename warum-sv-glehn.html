@@ -98,12 +98,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            /* contain shows the full portrait frame on landscape screens */
+            object-fit: contain;
+            background: #000;
             z-index: 1;
             transform-origin: center center;
-            will-change: transform, opacity;
+            will-change: opacity;
             opacity: 1;
-            transform: scale(1);
         }
 
         .hero-mask-overlay {
@@ -435,19 +436,18 @@
 
                 // Apply animations based on progress pointer
                 
-                // 1. Zoom video slightly Out (1 -> ~0.8)
-                const videoScale = 1 - (progress * 0.2);
-                video.style.transform = `scale(${videoScale})`;
+                // 1. No video scale — keep video at natural size so full frame is visible
+                // video scale intentionally removed
                 
-                // 2. Darken overlay mask (0 -> 0.8 opacity navy) over video
+                // 2. Darken overlay mask (0 -> 0.9 opacity navy) over video as we scroll
                 const maskOpacity = progress * 0.9;
                 mask.style.backgroundColor = `rgba(10, 25, 47, ${maskOpacity})`;
 
-                // 3. Zoom Logo Text In (Scale 3 -> 1) and Fade In (Opacity 0 -> 1)
-                // Let text reach opacity 1 at halfway point
+                // 3. Zoom Logo Image In (Scale 2.5 -> 1) and Fade In (Opacity 0 -> 1)
+                // Let image reach opacity 1 at halfway point
                 const textOpacity = Math.min(progress * 2.5, 1); 
-                // Scale goes from 3 to 1 mapping linearly across progress
-                const textScale = Math.max(3 - (progress * 2), 1);
+                // Scale goes from 2.5 to 1 mapping linearly across progress
+                const textScale = Math.max(2.5 - (progress * 1.5), 1);
                 const textY = Math.max(20 - (progress * 20), 0);
                 
                 text.style.transform = `scale(${textScale}) translateY(${textY}px)`;
@@ -482,24 +482,34 @@
             onScroll();
 
             // Intersection Observer for Glass Cards "Fade In Up" effect
+            // rootMargin 200px means cards become visible 200px BEFORE they enter the viewport
             const observerOptions = {
                 root: null,
-                rootMargin: '0px 0px -100px 0px', // trigger slightly before entering viewport fully
-                threshold: 0.1
+                rootMargin: '200px 0px 0px 0px',
+                threshold: 0
             };
 
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('is-visible');
-                        // Optional: unobserve once visible (stops fading out on reverse scroll)
-                        // observer.unobserve(entry.target); 
+                        observer.unobserve(entry.target); // lock visible state
                     }
                 });
             }, observerOptions);
 
             const elementsToObserve = document.querySelectorAll('.observe-me');
             elementsToObserve.forEach(el => observer.observe(el));
+            
+            // Fallback: if page is already scrolled past cards (e.g. back navigation), show them
+            setTimeout(() => {
+                elementsToObserve.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight + 300) {
+                        el.classList.add('is-visible');
+                    }
+                });
+            }, 300);
         });
     </script>
 </body>
