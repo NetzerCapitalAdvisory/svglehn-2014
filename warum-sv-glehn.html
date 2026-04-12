@@ -261,7 +261,9 @@
     <a href="index.html" class="floating-back">← STARTSEITE</a>
 
     <section class="hero-section">
-        <video class="hero-video" id="hero-video" playsinline autoplay loop muted></video>
+        <video class="hero-video" id="hero-video" playsinline autoplay loop muted poster="public/sv-glehn-logo.jpg">
+            <source src="sv-glehn-landscape.mp4" type="video/mp4">
+        </video>
         <div class="hero-mask-overlay"></div>
         <div id="sound-hint">🔊 TON EINSCHALTEN</div>
         <div class="scroll-indicator" id="scroll-hint">
@@ -321,16 +323,19 @@
             // --- VIDEO HANDLING (RESPONSIVE) ---
             function updateVideoSource() {
                 const isPortrait = window.innerHeight > window.innerWidth;
-                // Move from public/ to root for better server compatibility
                 const targetSrc = isPortrait ? 'sv-glehn-portrait.mp4' : 'sv-glehn-landscape.mp4';
                 
-                if (video.getAttribute('src') !== targetSrc) {
+                // Use currentSrc or attribute for comparison
+                const currentFile = video.currentSrc ? video.currentSrc.split('/').pop() : "";
+                const attrSrc = video.getAttribute('src');
+
+                if (currentFile !== targetSrc && attrSrc !== targetSrc) {
                     const time = video.currentTime;
-                    video.muted = true; // Stay muted for autoplay reliability
+                    video.muted = true;
                     video.src = targetSrc;
                     video.load();
                     video.currentTime = time;
-                    video.play().catch(e => console.log("Play error:", e));
+                    video.play().catch(e => console.log("Autoplay check:", e));
                     soundHint.textContent = '🔊 TON EINSCHALTEN';
                 }
             }
