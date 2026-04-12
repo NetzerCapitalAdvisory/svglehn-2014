@@ -130,7 +130,7 @@
             width: min(90vw, 600px);
             height: auto;
             opacity: 0;
-            transform: scale(8); /* Dramatic starting zoom */
+            transform: scale(5); /* Reduced from 8 for better rendering */
             will-change: transform, opacity;
             pointer-events: none;
             filter: drop-shadow(0 0 30px rgba(0,0,0,0.5));
@@ -334,7 +334,7 @@
             
             <div class="hero-mask-overlay" id="hero-mask"></div>
             
-            <img class="hero-logo-img" id="hero-text" src="/sv-glehn-logo.jpg" alt="S.V. Glehn Jahrgang 2014">
+            <img class="hero-logo-img" id="hero-text" src="public/sv-glehn-logo.jpg" alt="S.V. Glehn Jahrgang 2014">
 
             <div id="sound-hint">🔊 TON EINSCHALTEN</div>
 
@@ -401,7 +401,7 @@
             // --- VIDEO HANDLING (RESPONSIVE) ---
             function updateVideoSource() {
                 const isPortrait = window.innerHeight > window.innerWidth;
-                const targetSrc = isPortrait ? '/sv-glehn-portrait.mp4' : '/sv-glehn-landscape.mp4';
+                const targetSrc = isPortrait ? 'public/sv-glehn-portrait.mp4' : 'public/sv-glehn-landscape.mp4';
                 
                 if (video.getAttribute('src') !== targetSrc) {
                     const time = video.currentTime;
@@ -451,10 +451,10 @@
                     }
                 }
 
-                // --- APPLE STYLE ZOOM: From 8x to 1x ---
-                const logoScale = Math.max(8 - (progress * 7), 1);
+                // --- APPLE STYLE ZOOM: From 5x to 1x ---
+                const logoScale = Math.max(5 - (progress * 4), 1);
                 // Logo fades in strongly at start, then stays solid
-                const logoOpacity = Math.min(progress * 5, 1);
+                const logoOpacity = Math.min(progress * 4, 1);
                 
                 logo.style.transform = `scale(${logoScale})`;
                 logo.style.opacity = logoOpacity;
@@ -502,10 +502,10 @@
 
             onScroll();
 
-            // --- INTERSECTION OBSERVER (CARDS) ---
+            // --- INTERSECTION OBSERVER (CARDS & OUTRO) ---
             const observerOptions = {
                 root: null,
-                rootMargin: '150px 0px 0px 0px',
+                rootMargin: '250px 0px 0px 0px', // Increased to trigger earlier (especially for bottom text)
                 threshold: 0
             };
 
