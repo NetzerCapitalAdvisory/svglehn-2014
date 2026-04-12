@@ -6,7 +6,7 @@
     <title>Warum S.V. Glehn 2014?</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Overrides for Simplified Video Hero */
+        /* Overrides for Robust Video Hero */
         html, body {
             margin: 0;
             padding: 0;
@@ -50,10 +50,6 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
-        .floating-back:hover {
-            background: rgba(212, 175, 55, 0.2);
-            transform: translateY(-2px);
-        }
 
         @media (max-width: 768px) {
             .floating-back {
@@ -78,6 +74,7 @@
             background: #000;
             padding-top: 80px;
             box-sizing: border-box;
+            cursor: pointer; /* Click to play hint */
         }
 
         .hero-video {
@@ -88,12 +85,12 @@
             height: 100%;
             object-fit: cover;
             z-index: 1;
+            background: #000;
         }
         
         @media (max-width: 480px) and (orientation: portrait) {
             .hero-video {
                 object-fit: contain;
-                background: #000;
             }
         }
 
@@ -104,7 +101,7 @@
             width: 100%;
             height: 100%;
             z-index: 2;
-            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.3), rgba(10, 25, 47, 0.6));
+            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.2), rgba(10, 25, 47, 0.5));
             pointer-events: none;
         }
 
@@ -121,6 +118,7 @@
             letter-spacing: 0.25em;
             text-transform: uppercase;
             animation: bounce 2.5s infinite;
+            pointer-events: none;
         }
 
         @keyframes bounce {
@@ -218,13 +216,6 @@
             font-weight: 700;
         }
 
-        .glass-card p {
-            color: #bbc7d4;
-            font-size: 1.1rem;
-            line-height: 1.7;
-            margin: 0;
-        }
-
         .outro-container {
             max-width: 800px;
             margin: 5rem auto 0;
@@ -260,9 +251,12 @@
 
     <a href="index.html" class="floating-back">← STARTSEITE</a>
 
-    <section class="hero-section">
-        <video class="hero-video" id="hero-video" playsinline autoplay loop muted poster="public/sv-glehn-logo.jpg">
-            <source src="sv-glehn-landscape.mp4" type="video/mp4">
+    <section class="hero-section" id="hero-click-area">
+        <video class="hero-video" id="hero-video" 
+               playsinline autoplay loop muted preload="auto"
+               poster="public/sv-glehn-logo.jpg">
+            <!-- Using simple sources for maximum browser pick-up -->
+            <source src="./sv-glehn-landscape.mp4" type="video/mp4">
         </video>
         <div class="hero-mask-overlay"></div>
         <div id="sound-hint">🔊 TON EINSCHALTEN</div>
@@ -279,27 +273,22 @@
                 <h3>Hohe Trainingsqualität</h3>
                 <p>Du trainierst mit Spielern, die etwas erreichen wollen. Mit strukturiertem, zielorientiertem, aber abwechslungsreichem Training heben wir dein Niveau Woche für Woche.</p>
             </div>
-
             <div class="glass-card observe-me">
                 <h3>Individuelle Entwicklung</h3>
                 <p>Ein Trainer-Spieler-Verhältnis, das individuelles Coaching, schnelle Korrekturen und messbaren Fortschritt garantiert.</p>
             </div>
-
             <div class="glass-card observe-me">
                 <h3>Leistungsfördernde Intensität</h3>
                 <p>Wir bieten pro Woche 5 Einheiten (inkl. Spiel) an, um durch eine hohe Anzahl an Wiederholungen die Fähigkeiten gezielt einzuüben.</p>
             </div>
-
             <div class="glass-card observe-me">
                 <h3>Trainer mit klarer Spielidee</h3>
                 <p>So wichtig wie individuelle Fähigkeiten sind uns mannschaftliches Spielverständnis im Aufbauspiel wie in der Verteidigung.</p>
             </div>
-
             <div class="glass-card observe-me">
                 <h3>Starke Mannschaft</h3>
                 <p>Intensität, Teamgeist und Spaß am Fußball – bei uns zählt Leistung in der Gemeinschaft.</p>
             </div>
-
             <div class="glass-card observe-me">
                 <h3>Professionelles Setup</h3>
                 <p>Infrastruktur, Betreuer und Sponsoren schaffen den Rahmen, damit Du Dich auf das Wesentliche konzentrieren kannst: Deine Entwicklung.</p>
@@ -319,34 +308,43 @@
             const soundHint = document.getElementById('sound-hint');
             const header = document.getElementById('site-header');
             const hint = document.getElementById('scroll-hint');
+            const clickArea = document.getElementById('hero-click-area');
 
             // --- VIDEO HANDLING (RESPONSIVE) ---
             function updateVideoSource() {
                 const isPortrait = window.innerHeight > window.innerWidth;
-                const targetSrc = isPortrait ? 'sv-glehn-portrait.mp4' : 'sv-glehn-landscape.mp4';
+                const targetSrc = isPortrait ? './sv-glehn-portrait.mp4' : './sv-glehn-landscape.mp4';
                 
-                // Use currentSrc or attribute for comparison
-                const currentFile = video.currentSrc ? video.currentSrc.split('/').pop() : "";
-                const attrSrc = video.getAttribute('src');
-
-                if (currentFile !== targetSrc && attrSrc !== targetSrc) {
-                    const time = video.currentTime;
-                    video.muted = true;
+                // Get the current resolved source name
+                const currentResolved = video.currentSrc ? video.currentSrc.split('/').pop() : "";
+                
+                if (currentResolved !== targetSrc.split('/').pop()) {
+                    console.log("Switching video to:", targetSrc);
                     video.src = targetSrc;
                     video.load();
-                    video.currentTime = time;
-                    video.play().catch(e => console.log("Autoplay check:", e));
-                    soundHint.textContent = '🔊 TON EINSCHALTEN';
+                    video.muted = true;
+                    video.play().catch(e => {
+                        console.warn("Autoplay blocked, waiting for interaction", e);
+                    });
                 }
             }
             
             updateVideoSource();
             window.addEventListener('resize', updateVideoSource);
 
+            // --- FALLBACK PLAY ON CLICK ---
+            // If autoplay is blocked, any click on the hero will trigger it
+            clickArea.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play().then(() => {
+                        console.log("Video started via interaction");
+                    });
+                }
+            });
+
             // --- AUDIO HANDLING ---
-            let hasInteracted = false;
-            soundHint.addEventListener('click', () => {
-                hasInteracted = true;
+            soundHint.addEventListener('click', (e) => {
+                e.stopPropagation(); // Don't trigger the clickArea listener
                 video.muted = !video.muted;
                 soundHint.textContent = video.muted ? '🔊 TON EINSCHALTEN' : '🔇 TON AUSSCHALTEN';
                 if (video.paused) video.play();
@@ -355,14 +353,10 @@
             // --- SCROLL EFFECTS ---
             window.addEventListener('scroll', () => {
                 const scrollY = window.scrollY;
-                
-                // Mute video when scrolling down
                 if (scrollY > 100 && !video.muted) {
                     video.muted = true;
                     soundHint.textContent = '🔊 TON EINSCHALTEN';
                 }
-
-                // Header appearance
                 if (scrollY > 50) {
                     header.classList.add('scrolled-header');
                     hint.style.opacity = '0';
@@ -372,7 +366,7 @@
                 }
             }, { passive: true });
 
-            // --- INTERSECTION OBSERVER (CARDS) ---
+            // --- INTERSECTION OBSERVER ---
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
