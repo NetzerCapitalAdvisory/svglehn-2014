@@ -6,120 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Philosophie - SV Glehn 2014</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            padding-top: 80px;
-        }
-
-        .detail-page {
-            padding: 4rem 0 6rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Back Link */
-        .back-link {
-            display: inline-block;
-            color: var(--color-gold);
-            font-family: var(--font-sans);
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            text-decoration: none;
-            margin-bottom: 4rem;
-            transition: opacity 0.3s ease;
-        }
-
-        .back-link:hover {
-            opacity: 0.7;
-        }
-
-        /* New Header Layout */
-        .header-content {
-            position: relative;
-            margin-bottom: 5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .title-wrapper {
-            position: relative;
-            padding-top: 2rem;
-            /* Space for the line */
-            z-index: 2;
-        }
-
-        .title-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--color-gold);
-        }
-
-        .detail-page h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(3rem, 6vw, 5rem);
-            margin: 0;
-            color: var(--color-white);
-            line-height: 1.1;
-        }
-
-        .big-number {
-            font-family: var(--font-serif);
-            font-size: 15rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.03);
-            /* Subtle watermark effect */
-            line-height: 0.8;
-            position: absolute;
-            right: -2rem;
-            top: -3rem;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        /* Content Styling */
-        .detail-page h3 {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            margin: 3rem 0 1.5rem;
-            color: var(--color-gold);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .detail-page p {
-            font-size: 1.125rem;
-            line-height: 1.85;
-            margin-bottom: 1.75rem;
-            color: var(--color-text-light);
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Vertical Line for Content */
-        .content-wrapper {
-            border-left: 1px solid rgba(212, 175, 55, 0.3);
-            padding-left: 3rem;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .highlight-box {
-            background: var(--color-navy-lighter);
-            border: 1px solid var(--color-border-subtle);
-            border-left: 4px solid var(--color-gold);
-            padding: 2.5rem;
-            margin: 3rem 0;
-            border-radius: 8px;
-        }
-    </style>
 </head>
 
 <body>
@@ -138,7 +24,7 @@
 
     <main class="detail-page">
         <div class="container">
-            <a href="index.html" class="back-link">← ZURÜCK</a>
+            <a href="index.html" class="floating-back-btn">← STARTSEITE</a>
 
             <div class="header-content">
                 <div class="title-wrapper">
@@ -147,7 +33,7 @@
                 <div class="big-number">01</div>
             </div>
 
-            <div class="content-wrapper">
+            <div class="glass-card observe-me">
                 <p>Fußball ist für viele von uns ein wichtiger Teil des Lebens – und das ist großartig! Es ist
                     großartig, weil Dir Fußball nicht nur jede Menge Freude bereiten kann, sondern Dich auch körperlich
                     und geistig fit hält. Es gibt zudem kaum etwas anderes, das Menschen so verbindet – egal, ob jung

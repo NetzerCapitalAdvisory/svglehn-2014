@@ -6,145 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>10 Gebote - SV Glehn 2014</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            padding-top: 80px;
-        }
-
-        .detail-page {
-            padding: 4rem 0 6rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .back-link {
-            display: inline-block;
-            color: var(--color-gold);
-            font-family: var(--font-sans);
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            text-decoration: none;
-            margin-bottom: 4rem;
-            transition: opacity 0.3s ease;
-        }
-
-        .back-link:hover {
-            opacity: 0.7;
-        }
-
-        .header-content {
-            position: relative;
-            margin-bottom: 5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-
-        .title-wrapper {
-            position: relative;
-            padding-top: 2rem;
-            z-index: 2;
-        }
-
-        .title-wrapper::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 60px;
-            height: 2px;
-            background: var(--color-gold);
-        }
-
-        .detail-page h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(3rem, 6vw, 5rem);
-            margin: 0;
-            color: var(--color-white);
-            line-height: 1.1;
-        }
-
-        .big-number {
-            font-family: var(--font-serif);
-            font-size: 15rem;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.03);
-            line-height: 0.8;
-            position: absolute;
-            right: -2rem;
-            top: -3rem;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .content-wrapper {
-            border-left: 1px solid rgba(212, 175, 55, 0.3);
-            padding-left: 3rem;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .detail-page p.intro-text {
-            font-size: 1.125rem;
-            line-height: 1.85;
-            margin-bottom: 1.75rem;
-            color: var(--color-text-light);
-        }
-
-        h2.section-title {
-            font-family: var(--font-serif);
-            font-size: 2rem;
-            color: var(--color-white);
-            margin-top: 3rem;
-            margin-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-            padding-bottom: 0.5rem;
-        }
-
-        .gebote-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 2rem;
-            margin-bottom: 3rem;
-        }
-
-        @media (min-width: 768px) {
-            .gebote-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .gebote-item {
-            background: var(--color-navy-lighter);
-            border: 1px solid var(--color-border-subtle);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .gebote-item:hover {
-            border-color: var(--color-gold);
-            transform: translateY(-4px);
-        }
-
-        .gebote-item h3 {
-            font-family: var(--font-serif);
-            font-size: 1.25rem;
-            margin: 0 0 1rem 0;
-            color: var(--color-gold);
-            line-height: 1.4;
-        }
-
-        .gebote-item p {
-            margin: 0;
-            font-size: 1.125rem;
-            color: var(--color-text-light);
-            line-height: 1.6;
-        }
-    </style>
 </head>
 
 <body>
@@ -163,7 +24,7 @@
 
     <main class="detail-page">
         <div class="container">
-            <a href="index.html" class="back-link">← ZURÜCK</a>
+            <a href="index.html" class="floating-back-btn">← STARTSEITE</a>
 
             <div class="header-content">
                 <div class="title-wrapper">
@@ -172,7 +33,7 @@
                 <div class="big-number">04</div>
             </div>
 
-            <div class="content-wrapper">
+            <div class="observe-me" style="margin-top: 2rem;">
                 <p class="intro-text">
                     Neben der richtigen Philosophie, Einstellung und Fähigkeiten bilden “10 Gebote” das Fundament für jedes Training und jedes Spiel.<br>
                     Immer, wenn der Ball in der Nähe ist, befolgen wir diese 10 Regeln ganz automatisch, d.h. ohne sie jedesmal neu erläutern zu müssen.
@@ -180,23 +41,23 @@
 
                 <h2 class="section-title">I. Bewegung</h2>
                 <div class="gebote-grid">
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>1. Pass & Move</h3>
                         <p>Nach jedem Pass startest du sofort neu – lauf dich frei und schaff eine neue Option.</p>
                     </div>
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>2. Das Magische Dreieck</h3>
                         <p>Wir bewegen uns ständig so, dass wir überall auf dem Platz Dreiecke bilden.</p>
                     </div>
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>3. Anspielstation sein</h3>
                         <p>Wer den Ball gerade nicht hat, arbeitet am härtesten. Mach ein aktives Angebot!</p>
                     </div>
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>4. Entgegengehen</h3>
                         <p>Wir warten nicht auf den Ball, sondern gehen ihm entgegen, um dynamisch zu spielen und dem Gegner möglichst immer zuvorzukommen.</p>
                     </div>
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>5. Sichtkontakt halten</h3>
                         <p>Wenn du den Ball nicht siehst, sieht der Ball dich auch nicht. Such dir sofort einen neuen Korridor.</p>
                     </div>
@@ -204,15 +65,15 @@
 
                 <h2 class="section-title">II. Spielintelligenz</h2>
                 <div class="gebote-grid">
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>6. Flach spielen</h3>
                         <p>Wir halten den Ball am Boden – das macht unser Spiel schnell und präzise.</p>
                     </div>
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>7. Flügelspiel vor Zentrum</h3>
                         <p>Wir spielen den Ball bevorzugt über die Außenbahnen statt durch die risikoreiche Mitte.</p>
                     </div>
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>8. Kopf hoch</h3>
                         <p>Vor jedem Pass nimmst du kurz den Kopf hoch, um die beste Entscheidung zu treffen.</p>
                     </div>
@@ -220,11 +81,11 @@
 
                 <h2 class="section-title">III. Fokus</h2>
                 <div class="gebote-grid">
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>9. Körper hinter den Ball</h3>
                         <p>Beim Stoppen – besonders bei hohen Bällen – ist der Körper immer die Sicherung hinter dem Ball.</p>
                     </div>
-                    <div class="gebote-item">
+                    <div class="glass-card observe-me">
                         <h3>10. Fokus Total</h3>
                         <p>Deine Augen sind zu jedem Zeitpunkt fest auf dem Ball.</p>
                     </div>
