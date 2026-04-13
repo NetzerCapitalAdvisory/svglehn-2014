@@ -491,6 +491,7 @@ section {
 
 .coach-photo-wrapper {
   background: var(--color-navy-lighter);
+  background-image: linear-gradient(45deg, var(--color-deep-navy), var(--color-navy-lighter));
   border: 2px solid var(--color-gold-muted);
   width: 180px;
   height: 180px;
@@ -499,12 +500,16 @@ section {
   margin: 0 auto 1.25rem;
   transition: all 0.3s ease;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .coach-photo-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block; /* Ensure it's not inline */
   transition: transform 0.5s ease;
 }
 
