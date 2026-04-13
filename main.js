@@ -35,12 +35,22 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+      if (entry.target.classList.contains('profile-grid')) {
+        const cards = entry.target.querySelectorAll('.profile-card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, index * 100);
+        });
+      } else {
+        entry.target.classList.add('visible');
+      }
     }
   });
 }, observerOptions);
 
-document.querySelectorAll('.observe-me').forEach(el => {
+document.querySelectorAll('.observe-me, .profile-grid').forEach(el => {
   observer.observe(el);
 });
 
