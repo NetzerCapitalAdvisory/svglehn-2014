@@ -482,33 +482,55 @@ section {
 
 .coach-card {
   text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.photo-placeholder {
+.coach-card:hover {
+  transform: translateY(-5px);
+}
+
+.coach-photo-wrapper {
   background: var(--color-navy-lighter);
   border: 2px solid var(--color-gold-muted);
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-  color: var(--color-gold);
-  font-weight: 700;
-  font-size: 1.25rem;
+  overflow: hidden;
+  margin: 0 auto 1.25rem;
   transition: all 0.3s ease;
+  position: relative;
 }
 
-.coach-card:hover .photo-placeholder {
+.coach-photo-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.coach-card:hover .coach-photo-wrapper {
   border-color: var(--color-gold);
-  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+}
+
+.coach-card:hover .coach-photo-wrapper img {
+  transform: scale(1.1);
+}
+
+.coach-name {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-gold);
+  margin-bottom: 0.25rem;
+  font-weight: 700;
 }
 
 .phone {
   color: var(--color-text-light);
-  font-weight: 600;
-  margin-top: 0.5rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  opacity: 0.8;
 }
 
 /* Premium Form */
