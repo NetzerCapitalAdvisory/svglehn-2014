@@ -27,4 +27,21 @@ window.addEventListener('scroll', () => {
   }
 });
 
+// Scroll Animation Logic
+const observerOptions = {
+  threshold: 0.1
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.observe-me').forEach(el => {
+  observer.observe(el);
+});
+
 console.log('SV Glehn Website Loaded');
