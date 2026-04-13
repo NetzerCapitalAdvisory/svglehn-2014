@@ -1,3 +1,6 @@
+// Indicate that JS is enabled for animations
+document.documentElement.classList.add('js-enabled');
+
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
