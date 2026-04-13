@@ -3,236 +3,266 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Warum S.V. Glehn 2014?</title>
+    <title>Warum S.V. Glehn 2014? – 6 starke Argumente</title>
+    <meta name="description" content="Warum S.V. Glehn Jahrgang 2014? Entdecke 6 starke Argumente für unsere Mannschaft." />
     <link rel="stylesheet" href="style.css">
     <style>
-        /* Overrides for Robust Video Hero */
-        html, body {
+        /* =========================================
+           PAGE BASE
+        ========================================= */
+        html { scroll-behavior: smooth; }
+        body {
             margin: 0;
             padding: 0;
-            background: var(--color-deep-navy);
+            background: #0a192f;
             overflow-x: hidden;
-            scroll-behavior: smooth;
         }
 
+        /* =========================================
+           FIXED HEADER
+        ========================================= */
         header {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
             width: 100%;
-            z-index: 100;
-            background: transparent;
-            transition: background 0.3s ease;
+            z-index: 200;
+            transition: background 0.4s ease, box-shadow 0.4s ease;
         }
-        header.scrolled-header {
-            background: var(--color-deep-navy);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+        header.scrolled {
+            background: rgba(10, 25, 47, 0.95);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 2px 24px rgba(0,0,0,0.5);
         }
 
+        /* Back link */
         .floating-back {
             position: fixed;
-            top: 6rem;
-            left: 2rem;
-            color: var(--color-gold);
-            font-family: var(--font-sans);
-            font-weight: 600;
-            font-size: 0.75rem;
-            text-transform: uppercase;
+            top: 5.5rem;
+            left: 1.5rem;
+            z-index: 201;
+            color: #d4af37;
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.7rem;
+            font-weight: 700;
             letter-spacing: 0.15em;
+            text-transform: uppercase;
             text-decoration: none;
-            z-index: 101;
-            background: rgba(10, 25, 47, 0.6);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 0.75rem 1.25rem;
-            border-radius: 30px;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(10, 25, 47, 0.7);
+            backdrop-filter: blur(12px);
+            padding: 0.6rem 1.1rem;
+            border-radius: 2rem;
+            border: 1px solid rgba(212, 175, 55, 0.35);
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        .floating-back:hover {
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateX(-3px);
+        }
+        @media (max-width: 600px) {
+            .floating-back { display: none; }
         }
 
-        @media (max-width: 768px) {
-            .floating-back {
-                top: auto;
-                bottom: 2rem;
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-
-        /* -------------------------------------
-           HERO SECTION
-        ----------------------------------------*/
-        .hero-section {
+        /* =========================================
+           HERO – FULLSCREEN VIDEO
+        ========================================= */
+        .hero-wrap {
             position: relative;
             width: 100%;
             height: 100vh;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             background: #000;
-            padding-top: 80px;
-            box-sizing: border-box;
-            cursor: pointer; /* Click to play hint */
         }
 
         .hero-video {
             position: absolute;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 1;
-            background: #000;
-        }
-        
-        @media (max-width: 480px) and (orientation: portrait) {
-            .hero-video {
-                object-fit: contain;
-            }
+            object-position: center;
         }
 
-        .hero-mask-overlay {
+        /* Portrait: contain so full frame is visible */
+        @media (orientation: portrait) {
+            .hero-video { object-fit: contain; }
+        }
+
+        /* Bottom gradient leading into content */
+        .hero-gradient {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            bottom: 0; left: 0; right: 0;
+            height: 35%;
+            background: linear-gradient(to bottom, transparent, #0a192f);
+            pointer-events: none;
             z-index: 2;
-            background: linear-gradient(to bottom, rgba(10, 25, 47, 0.2), rgba(10, 25, 47, 0.5));
-            pointer-events: none;
         }
 
-        .scroll-indicator {
+        /* Top gradient to protect nav readability */
+        .hero-gradient-top {
             position: absolute;
-            bottom: 3rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
-            color: rgba(255, 255, 255, 0.7);
-            text-align: center;
-            font-family: var(--font-sans);
-            font-size: 0.75rem;
-            letter-spacing: 0.25em;
+            top: 0; left: 0; right: 0;
+            height: 160px;
+            background: linear-gradient(to bottom, rgba(10,25,47,0.55), transparent);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Sound button */
+        #sound-btn {
+            position: absolute;
+            bottom: 7rem;
+            right: 1.5rem;
+            z-index: 10;
+            background: rgba(10, 25, 47, 0.75);
+            color: #d4af37;
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            animation: bounce 2.5s infinite;
-            pointer-events: none;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-            40% { transform: translateY(-15px) translateX(-50%); }
-            60% { transform: translateY(-7px) translateX(-50%); }
-        }
-
-        #sound-hint {
-            position: absolute;
-            bottom: 6rem;
-            right: 2rem;
-            z-index: 102;
-            background: rgba(10, 25, 47, 0.8);
-            color: var(--color-gold);
-            font-family: var(--font-sans);
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            padding: 0.75rem 1.25rem;
-            border-radius: 30px;
-            border: 1px solid var(--color-gold);
+            padding: 0.65rem 1.1rem;
+            border-radius: 2rem;
+            border: 1px solid #d4af37;
             cursor: pointer;
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             transition: all 0.3s ease;
+            user-select: none;
         }
+        #sound-btn:hover { background: rgba(212,175,55,0.25); }
 
-        /* -------------------------------------
-           CONTENT SECTIONS
-        ----------------------------------------*/
-        .arguments-section {
-            padding: 8rem 0 10rem;
-            background: var(--color-deep-navy);
-            position: relative;
+        /* Scroll indicator */
+        .scroll-cue {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
             z-index: 10;
+            color: rgba(255,255,255,0.6);
+            font-family: var(--font-sans, sans-serif);
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            text-align: center;
+            animation: cue-bounce 2.4s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .scroll-cue span { display: block; margin-top: 4px; font-size: 1rem; }
+        @keyframes cue-bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(-10px); }
         }
 
-        .section-headline {
-            text-align: center;
-            font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            color: var(--color-white);
-            margin-bottom: 5rem;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1s ease;
+        /* =========================================
+           ARGUMENTS SECTION
+        ========================================= */
+        .args-section {
+            position: relative;
+            background: #0a192f;
+            padding: 7rem 2rem 10rem;
         }
-        .section-headline.is-visible {
+
+        .args-section::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #d4af37 30%, #d4af37 70%, transparent);
+            opacity: 0.4;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: var(--font-serif, Georgia, serif);
+            font-size: clamp(2rem, 5vw, 3.8rem);
+            color: #fff;
+            margin: 0 0 5rem;
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.9s ease, transform 0.9s ease;
+        }
+        .section-title.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .glass-grid {
+        /* Grid */
+        .args-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 2.5rem;
-            max-width: 1250px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1260px;
             margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        @media (min-width: 768px) {
-            .glass-grid {
-                grid-template-columns: 1fr 1fr;
-            }
         }
         @media (min-width: 1024px) {
-            .glass-grid {
-                grid-template-columns: 1fr 1fr 1fr;
-            }
+            .args-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 3.5rem 2.5rem;
+        /* Card */
+        .arg-card {
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(255,255,255,0.07);
+            border-top-color: rgba(212,175,55,0.35);
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            position: relative;
+            overflow: hidden;
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
+            transform: translateY(50px);
+            transition: opacity 0.7s ease, transform 0.7s ease,
+                        background 0.3s ease, border-color 0.3s ease,
+                        box-shadow 0.3s ease;
         }
-        
-        .glass-card.is-visible {
+        .arg-card.visible {
             opacity: 1;
             transform: translateY(0);
         }
+        .arg-card:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: rgba(212,175,55,0.55);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            transform: translateY(-6px) !important;
+        }
+        .arg-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top right, rgba(212,175,55,0.08), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .arg-card:hover::after { opacity: 1; }
 
-        .glass-card h3 {
-            color: var(--color-gold);
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
+        .arg-card h3 {
+            color: #d4af37;
+            font-size: 1.35rem;
             font-weight: 700;
+            margin: 0 0 1rem;
+        }
+        .arg-card p {
+            color: #a8b8c8;
+            font-size: 1.05rem;
+            line-height: 1.75;
+            margin: 0;
         }
 
-        .outro-container {
-            max-width: 800px;
+        /* Outro */
+        .outro {
+            max-width: 720px;
             margin: 5rem auto 0;
-            padding: 0 2rem;
             text-align: center;
-        }
-        .outro-text {
-            color: var(--color-white);
-            font-size: 1.3rem;
-            font-style: italic;
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.8s ease;
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
         }
-        .outro-text.is-visible {
+        .outro.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        .outro p {
+            color: rgba(255,255,255,0.7);
+            font-size: 1.2rem;
+            font-style: italic;
         }
     </style>
 </head>
@@ -241,143 +271,164 @@
     <header id="site-header">
         <div class="container">
             <nav>
-                <div class="brand"><a href="index.html" style="color: var(--color-white); text-decoration: none;">S.V. Glehn 2014</a></div>
+                <div class="brand">
+                    <a href="index.html" style="color:#fff;text-decoration:none;">S.V. Glehn 2014</a>
+                </div>
                 <ul class="nav-links">
-                    <li><a href="index.html#probetraining" style="color: var(--color-gold); font-weight: 700;">PROBETRAINING</a></li>
+                    <li><a href="index.html#probetraining" style="color:#d4af37;font-weight:700;">PROBETRAINING</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <a href="index.html" class="floating-back">← STARTSEITE</a>
+    <a href="index.html" class="floating-back">← Startseite</a>
 
-    <section class="hero-section" id="hero-click-area">
-        <video class="hero-video" id="hero-video" 
-               playsinline autoplay loop muted preload="auto"
-               poster="public/sv-glehn-logo.jpg">
-            <!-- Using simple sources for maximum browser pick-up -->
-            <source src="./sv-glehn-landscape.mp4" type="video/mp4">
+    <!-- ===================== HERO ===================== -->
+    <div class="hero-wrap" id="hero-wrap">
+        <!-- Video loads immediately via HTML source tag for best autoplay support -->
+        <video
+            id="hero-video"
+            class="hero-video"
+            autoplay
+            loop
+            muted
+            playsinline
+            preload="auto">
         </video>
-        <div class="hero-mask-overlay"></div>
-        <div id="sound-hint">🔊 TON EINSCHALTEN</div>
-        <div class="scroll-indicator" id="scroll-hint">
-            Scroll<br>↓
-        </div>
-    </section>
 
-    <section class="arguments-section">
-        <h2 class="section-headline observe-me">6 starke Argumente</h2>
-        
-        <div class="glass-grid">
-            <div class="glass-card observe-me">
+        <div class="hero-gradient-top"></div>
+        <div class="hero-gradient"></div>
+
+        <button id="sound-btn" aria-label="Ton ein/aus">🔊 TON EINSCHALTEN</button>
+
+        <div class="scroll-cue">
+            Scrollen <span>↓</span>
+        </div>
+    </div>
+
+    <!-- ===================== ARGUMENTS ===================== -->
+    <section class="args-section" id="args">
+        <h2 class="section-title" id="section-title">6 starke Argumente</h2>
+
+        <div class="args-grid">
+            <div class="arg-card">
                 <h3>Hohe Trainingsqualität</h3>
                 <p>Du trainierst mit Spielern, die etwas erreichen wollen. Mit strukturiertem, zielorientiertem, aber abwechslungsreichem Training heben wir dein Niveau Woche für Woche.</p>
             </div>
-            <div class="glass-card observe-me">
+            <div class="arg-card">
                 <h3>Individuelle Entwicklung</h3>
                 <p>Ein Trainer-Spieler-Verhältnis, das individuelles Coaching, schnelle Korrekturen und messbaren Fortschritt garantiert.</p>
             </div>
-            <div class="glass-card observe-me">
+            <div class="arg-card">
                 <h3>Leistungsfördernde Intensität</h3>
                 <p>Wir bieten pro Woche 5 Einheiten (inkl. Spiel) an, um durch eine hohe Anzahl an Wiederholungen die Fähigkeiten gezielt einzuüben.</p>
             </div>
-            <div class="glass-card observe-me">
+            <div class="arg-card">
                 <h3>Trainer mit klarer Spielidee</h3>
                 <p>So wichtig wie individuelle Fähigkeiten sind uns mannschaftliches Spielverständnis im Aufbauspiel wie in der Verteidigung.</p>
             </div>
-            <div class="glass-card observe-me">
+            <div class="arg-card">
                 <h3>Starke Mannschaft</h3>
                 <p>Intensität, Teamgeist und Spaß am Fußball – bei uns zählt Leistung in der Gemeinschaft.</p>
             </div>
-            <div class="glass-card observe-me">
+            <div class="arg-card">
                 <h3>Professionelles Setup</h3>
                 <p>Infrastruktur, Betreuer und Sponsoren schaffen den Rahmen, damit Du Dich auf das Wesentliche konzentrieren kannst: Deine Entwicklung.</p>
             </div>
         </div>
 
-        <div class="outro-container">
-            <p class="outro-text observe-me">
-                ... und damit es für alle einfacher ist, bieten wir auch Fahrgemeinschaften an!
-            </p>
+        <div class="outro" id="outro">
+            <p>... und damit es für alle einfacher ist, bieten wir auch Fahrgemeinschaften an!</p>
         </div>
     </section>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const video = document.getElementById('hero-video');
-            const soundHint = document.getElementById('sound-hint');
-            const header = document.getElementById('site-header');
-            const hint = document.getElementById('scroll-hint');
-            const clickArea = document.getElementById('hero-click-area');
+    (function () {
+        'use strict';
 
-            // --- VIDEO HANDLING (RESPONSIVE) ---
-            function updateVideoSource() {
-                const isPortrait = window.innerHeight > window.innerWidth;
-                const targetSrc = isPortrait ? './sv-glehn-portrait.mp4' : './sv-glehn-landscape.mp4';
-                
-                // Get the current resolved source name
-                const currentResolved = video.currentSrc ? video.currentSrc.split('/').pop() : "";
-                
-                if (currentResolved !== targetSrc.split('/').pop()) {
-                    console.log("Switching video to:", targetSrc);
-                    video.src = targetSrc;
-                    video.load();
-                    video.muted = true;
-                    video.play().catch(e => {
-                        console.warn("Autoplay blocked, waiting for interaction", e);
-                    });
-                }
-            }
-            
-            updateVideoSource();
-            window.addEventListener('resize', updateVideoSource);
+        const video    = document.getElementById('hero-video');
+        const soundBtn = document.getElementById('sound-btn');
+        const header   = document.getElementById('site-header');
 
-            // --- FALLBACK PLAY ON CLICK ---
-            // If autoplay is blocked, any click on the hero will trigger it
-            clickArea.addEventListener('click', () => {
-                if (video.paused) {
-                    video.play().then(() => {
-                        console.log("Video started via interaction");
-                    });
-                }
-            });
+        // ── Responsive Video Source ──────────────────────────
+        // Desktop (≥ 768px): landscape V2 (placeholder: sv-glehn-landscape.mp4 until V2 is added)
+        // Mobile  (< 768px): portrait video
+        function pickSrc() {
+            return window.innerWidth < 768
+                ? './sv-glehn-portrait.mp4'
+                : './sv-glehn-landscape.mp4';   // ← swap to sv-glehn-v2.mp4 once V2 is added
+        }
 
-            // --- AUDIO HANDLING ---
-            soundHint.addEventListener('click', (e) => {
-                e.stopPropagation(); // Don't trigger the clickArea listener
-                video.muted = !video.muted;
-                soundHint.textContent = video.muted ? '🔊 TON EINSCHALTEN' : '🔇 TON AUSSCHALTEN';
-                if (video.paused) video.play();
-            });
+        function loadVideo() {
+            const src = pickSrc();
+            if (video.getAttribute('src') === src) return; // already correct
+            video.muted = true;
+            video.src   = src;
+            video.load();
+            video.play().catch(() => {});
+            soundBtn.textContent = '🔊 TON EINSCHALTEN';
+        }
 
-            // --- SCROLL EFFECTS ---
-            window.addEventListener('scroll', () => {
-                const scrollY = window.scrollY;
-                if (scrollY > 100 && !video.muted) {
-                    video.muted = true;
-                    soundHint.textContent = '🔊 TON EINSCHALTEN';
-                }
-                if (scrollY > 50) {
-                    header.classList.add('scrolled-header');
-                    hint.style.opacity = '0';
-                } else {
-                    header.classList.remove('scrolled-header');
-                    hint.style.opacity = '1';
-                }
-            }, { passive: true });
+        loadVideo();
 
-            // --- INTERSECTION OBSERVER ---
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { rootMargin: '250px 0px 0px 0px', threshold: 0 });
-
-            document.querySelectorAll('.observe-me').forEach(el => observer.observe(el));
+        // Reload on orientation change (debounced)
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(loadVideo, 300);
         });
+
+        // Allow click anywhere on hero to kick-start video if blocked
+        document.getElementById('hero-wrap').addEventListener('click', () => {
+            if (video.paused) video.play().catch(() => {});
+        });
+
+        // ── Sound Toggle ─────────────────────────────────────
+        soundBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            video.muted = !video.muted;
+            soundBtn.textContent = video.muted ? '🔊 TON EINSCHALTEN' : '🔇 TON AUSSCHALTEN';
+            if (video.paused) video.play().catch(() => {});
+        });
+
+        // ── Scroll Effects ───────────────────────────────────
+        window.addEventListener('scroll', () => {
+            // Header background
+            header.classList.toggle('scrolled', window.scrollY > 60);
+
+            // Auto-mute when user scrolls away from hero
+            if (window.scrollY > window.innerHeight * 0.6 && !video.muted) {
+                video.muted = true;
+                soundBtn.textContent = '🔊 TON EINSCHALTEN';
+            }
+        }, { passive: true });
+
+        // ── Intersection Observer – Card Animations ──────────
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach((entry, i) => {
+                if (entry.isIntersecting) {
+                    // Stagger delay for grid cards
+                    const el = entry.target;
+                    const delay = el.dataset.delay || 0;
+                    setTimeout(() => el.classList.add('visible'), delay);
+                    io.unobserve(el);
+                }
+            });
+        }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+
+        // Stagger delay for each card
+        document.querySelectorAll('.arg-card').forEach((card, i) => {
+            card.dataset.delay = i * 120;
+            io.observe(card);
+        });
+
+        // Section title & outro
+        ['section-title', 'outro'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) io.observe(el);
+        });
+
+    })();
     </script>
 </body>
 </html>
