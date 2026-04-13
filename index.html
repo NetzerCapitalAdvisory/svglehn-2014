@@ -28,18 +28,18 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="hero-top-nav observe-me">
+      <div class="hero-top-nav">
         <a href="philosophie.html">PHILOSOPHIE</a> <span class="separator">|</span>
         <a href="einstellung.html">EINSTELLUNG</a> <span class="separator">|</span>
         <a href="faehigkeiten.html">FÄHIGKEITEN</a> <span class="separator">|</span>
         <a href="10-gebote.html">10 GEBOTE</a>
       </div>
-      <h1 class="observe-me" data-delay="150">Wir brauchen <span class="highlight">Dich</span><br>für unser Team, ...</h1>
-      <p class="observe-me" data-delay="300">
+      <h1>Wir brauchen <span class="highlight">Dich</span><br>für unser Team, ...</h1>
+      <p>
         wenn Du Jahrgang 2014 bist, Bock hast, in einer spielstarken Mannschaft zu kicken und Dein fußballerisches
         Können deutlich steigern willst.
       </p>
-      <a href="warum-sv-glehn.html" class="btn-cta observe-me" data-delay="450">6 starke Argumente,<br>warum Du zu uns wechseln solltest</a>
+      <a href="warum-sv-glehn.html" class="btn-cta">6 starke Argumente,<br>warum Du zu uns wechseln solltest</a>
     </div>
   </section>
 
@@ -48,7 +48,7 @@
     <div class="container">
       <div class="expertise-grid">
         <!-- Card 01: Philosophie -->
-        <div class="expertise-card glass-card observe-me">
+        <div class="expertise-card">
           <div class="card-number">01</div>
           <div class="card-content">
             <h3>Philosophie</h3>
@@ -59,7 +59,7 @@
         </div>
 
         <!-- Card 02: Einstellung -->
-        <div class="expertise-card glass-card observe-me">
+        <div class="expertise-card">
           <div class="card-number">02</div>
           <div class="card-content">
             <h3>Einstellung</h3>
@@ -70,7 +70,7 @@
         </div>
 
         <!-- Card 03: Fähigkeiten -->
-        <div class="expertise-card glass-card observe-me">
+        <div class="expertise-card">
           <div class="card-number">03</div>
           <div class="card-content">
             <h3>Fähigkeiten</h3>
@@ -81,7 +81,7 @@
         </div>
 
         <!-- Card 04: 10 Gebote -->
-        <div class="expertise-card glass-card observe-me">
+        <div class="expertise-card">
           <div class="card-number">04</div>
           <div class="card-content">
             <h3>10 Gebote</h3>
@@ -98,15 +98,15 @@
     <div class="container">
       <h2 class="section-title">Kontakt</h2>
       <div class="contact-grid">
-        <div class="coach-card glass-card observe-me">
+        <div class="coach-card">
           <div class="photo-placeholder">Daniel</div>
           <p class="phone">+49.170.576.3466</p>
         </div>
-        <div class="coach-card glass-card observe-me">
+        <div class="coach-card">
           <div class="photo-placeholder">Lutz</div>
           <p class="phone">+49.170.556.0810</p>
         </div>
-        <div class="coach-card glass-card observe-me">
+        <div class="coach-card">
           <div class="photo-placeholder">Thomas</div>
           <p class="phone">+49.171.381.7410</p>
         </div>
@@ -122,7 +122,7 @@
   <!-- Probetraining Form Section -->
   <section id="probetraining" class="form-section">
     <div class="container">
-      <div class="form-box glass-card observe-me">
+      <div class="form-box">
         <h2>Komm zum<br>Probetraining</h2>
         <form action="https://formspree.io/f/xnjzrdjv" method="POST">
           <div class="form-group">
@@ -176,8 +176,39 @@
     </div>
   </footer>
 
-  <script src="main.js"></script>
   <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Sticky Header Logic
+    const header = document.querySelector('header');
+
+    // Check initial scroll position
+    if (window.scrollY > 50) {
+      header.classList.add('scrolled');
+    }
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
 
     // Responsive Hero Alignment Logic
     function alignHeroElements() {
